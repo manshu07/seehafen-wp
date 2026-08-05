@@ -66,7 +66,7 @@ $opening      = get_theme_mod( 'seehafen_opening_hours', 'Montag bis Freitag<br 
 					<h2><?php esc_html_e( 'Ihre Anfrage', 'seehafen' ); ?></h2>
 					<p><?php esc_html_e( 'Füllen Sie nur die notwendigen Angaben aus.', 'seehafen' ); ?></p>
 				</div>
-				<?php echo do_shortcode( '[contact-form-7 id="139" title="Kontaktformular"]' ); ?>
+				<?php echo do_shortcode( '[contact-form-7 title="Kontaktformular"]' ); ?>
 			</div>
 		</div>
 	</section>
