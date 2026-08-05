@@ -60,41 +60,14 @@ $opening      = get_theme_mod( 'seehafen_opening_hours', 'Montag bis Freitag<br 
 				</div>
 			</aside>
 
-			<form class="contact-form" data-contact-form novalidate>
+			<div class="contact-form">
 				<div class="form-heading">
 					<span class="kicker"><?php esc_html_e( 'Nachricht senden', 'seehafen' ); ?></span>
 					<h2><?php esc_html_e( 'Ihre Anfrage', 'seehafen' ); ?></h2>
 					<p><?php esc_html_e( 'Füllen Sie nur die notwendigen Angaben aus.', 'seehafen' ); ?></p>
 				</div>
-				<div class="form-fields">
-					<label><?php esc_html_e( 'Name', 'seehafen' ); ?> *<input name="name" required autocomplete="name" /></label>
-					<label><?php esc_html_e( 'E-Mail', 'seehafen' ); ?> *<input name="email" type="email" required autocomplete="email" /></label>
-					<label><?php esc_html_e( 'Telefon', 'seehafen' ); ?><input name="phone" type="tel" autocomplete="tel" /></label>
-					<label><?php esc_html_e( 'Thema', 'seehafen' ); ?>
-						<select name="subject">
-							<option selected><?php esc_html_e( 'Allgemeine Anfrage', 'seehafen' ); ?></option>
-							<option><?php esc_html_e( 'Immobilienverkauf', 'seehafen' ); ?></option>
-							<option><?php esc_html_e( 'Bewirtschaftung', 'seehafen' ); ?></option>
-							<option><?php esc_html_e( 'Immobilienberatung', 'seehafen' ); ?></option>
-							<option><?php esc_html_e( 'Immobiliensuche', 'seehafen' ); ?></option>
-						</select>
-					</label>
-					<label class="full"><?php esc_html_e( 'Nachricht', 'seehafen' ); ?> *<textarea name="message" required rows="6"></textarea></label>
-					<label class="honeypot" aria-hidden="true"><?php esc_html_e( 'Website', 'seehafen' ); ?><input name="website" tabindex="-1" autocomplete="off" /></label>
-					<label class="consent full">
-						<input name="privacy" type="checkbox" required />
-						<span><?php esc_html_e( 'Ich habe die', 'seehafen' ); ?> <a href="<?php echo esc_url( home_url( '/datenschutz/' ) ); ?>"><?php esc_html_e( 'Datenschutzerklärung', 'seehafen' ); ?></a> <?php esc_html_e( 'gelesen und stimme der Bearbeitung meiner Angaben zur Kontaktaufnahme zu.', 'seehafen' ); ?></span>
-					</label>
-					<button class="button button-solid" data-contact-submit>
-						<span data-contact-label><?php esc_html_e( 'Nachricht senden', 'seehafen' ); ?></span>
-						<?php seehafen_icon( 'arrow-right' ); ?>
-					</button>
-					<div class="form-feedback" aria-live="polite">
-						<p class="form-success" data-contact-success hidden><?php esc_html_e( 'Vielen Dank. Ihre Nachricht wurde erfolgreich gesendet.', 'seehafen' ); ?></p>
-						<p class="form-error" data-contact-error hidden></p>
-					</div>
-				</div>
-			</form>
+				<?php echo do_shortcode( '[contact-form-7 id="139" title="Kontaktformular"]' ); ?>
+			</div>
 		</div>
 	</section>
 

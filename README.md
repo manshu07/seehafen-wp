@@ -11,7 +11,7 @@ WordPress migration of the Seehafen & Partner Immobilien AG website (seehafen-im
 | Theme | `themes/seehafen` — **child theme** of the WordPress default (`twentytwentyfive` parent). 1:1 site port, WP Coding Standards compliant |
 | Content types | `plugins/seehafen-cpt` — CPTs: service (8), reference (28), offer (3), team_member (3) + taxonomies |
 | SEO | Rank Math plugin + manual per-page meta (title/description/canonical/OG) |
-| Forms | Custom AJAX contact form → `wp_mail` (nonce + honeypot + sanitization) |
+| Forms | **Contact Form 7** (German messages, honeypot, consent acceptance, design-matched CSS) → mail |
 | Menus | WP nav menus (primary dropdowns + footer) |
 | Site settings | Appearance → Customize (contact info, addresses, hours, Homegate URL, hero, CTA, process, values) |
 | Images | WP media library (all 44 assets imported) |

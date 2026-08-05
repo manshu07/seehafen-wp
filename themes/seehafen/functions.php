@@ -16,7 +16,6 @@ require_once get_stylesheet_directory() . '/inc/ajax.php';
 require_once get_stylesheet_directory() . '/inc/customizer.php';
 require_once get_stylesheet_directory() . '/inc/template-tags.php';
 require_once get_stylesheet_directory() . '/inc/seo.php';
-require_once get_stylesheet_directory() . '/inc/contact-form.php';
 
 /**
  * Redirect /immobilien to the Homegate profile (matches the SPA worker).

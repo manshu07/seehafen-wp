@@ -346,72 +346,6 @@
 	}
 
 	/**
-	 * Contact form AJAX submit.
-	 *
-	 * @return {void}
-	 */
-	function initContactForm() {
-		const form = document.querySelector( '[data-contact-form]' );
-
-		if ( ! form ) {
-			return;
-		}
-
-		const submitButton = form.querySelector( '[data-contact-submit]' );
-		const label = form.querySelector( '[data-contact-label]' );
-		const success = form.querySelector( '[data-contact-success]' );
-		const error = form.querySelector( '[data-contact-error]' );
-
-		form.addEventListener( 'submit', ( event ) => {
-			event.preventDefault();
-
-			success.hidden = true;
-			error.hidden = true;
-			error.textContent = '';
-
-			const formData = new FormData( form );
-			formData.append( 'action', 'seehafen_contact' );
-			formData.append( 'nonce', seehafenData.contactNonce );
-
-			if ( submitButton ) {
-				submitButton.disabled = true;
-			}
-
-			if ( label ) {
-				label.textContent = 'Wird gesendet …';
-			}
-
-			fetch( seehafenData.ajaxUrl, {
-				method: 'POST',
-				body: formData,
-			} )
-				.then( ( response ) => response.json() )
-				.then( ( result ) => {
-					if ( result.success ) {
-						success.hidden = false;
-						form.reset();
-					} else {
-						error.textContent = result.data && result.data.error ? result.data.error : 'Senden fehlgeschlagen';
-						error.hidden = false;
-					}
-				} )
-				.catch( () => {
-					error.textContent = 'Senden fehlgeschlagen';
-					error.hidden = false;
-				} )
-				.finally( () => {
-					if ( submitButton ) {
-						submitButton.disabled = false;
-					}
-
-					if ( label ) {
-						label.textContent = 'Nachricht senden';
-					}
-				} );
-		} );
-	}
-
-	/**
 	 * Scroll to anchor on initial load with hash.
 	 *
 	 * @return {void}
@@ -438,7 +372,6 @@
 		initScrollReveal();
 		initOfferShowcase();
 		initReferenceLoadMore();
-		initContactForm();
 		initHashScroll();
 	} );
 } )( window.jQuery );

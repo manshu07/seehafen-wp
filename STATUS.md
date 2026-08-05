@@ -19,7 +19,7 @@
 | # | Item | Why blocked / needed |
 |---|---|---|
 | 1 | **phpcs WordPress-standard scan** | Code written to WPCS line-by-line, but the automated gate couldn't run in the container (no unzip; WPCS download 404'd). Run `phpcs --standard=WordPress` on a PHP host or install phpcs+WPCS properly. |
-| 2 | **Contact form email delivery** | wp_mail flow verified (validation + mail attempt), but no SMTP on local box. Production needs SMTP/transactional provider configured. |
+| 2 | **Contact form email delivery** | Switched to **Contact Form 7** (done ✅). CF7 pipeline verified (validation + German messages + submit). Still needs **SMTP** in production for actual delivery. |
 | 3 | **Production deployment** | Hosting target not decided. Local only. Needs PHP host + DB + domain (seehafen-immobilien.ch?) + SMTP + Rank Math final config. |
 | 4 | **Rank Math setup wizard** | Plugin active + per-page manual meta wired, but Rank Math's own setup/import not run yet. |
 | 5 | **Pixel screenshot diff vs live site** | Verified structure + computed styles match; a full screenshot comparison against the live SPA is the final visual proof. |

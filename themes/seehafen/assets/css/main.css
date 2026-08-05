@@ -2993,3 +2993,89 @@ main {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================================
+ * Contact Form 7 overrides — keep Seehafen design 1:1
+ * ========================================================= */
+
+.wpcf7 .wpcf7-form-control-wrap {
+	display: block;
+}
+
+.wpcf7 .form-fields .consent {
+	display: grid;
+	grid-template-columns: 18px minmax(0, 1fr);
+	gap: 11px;
+	align-items: start;
+	font-weight: 400;
+	line-height: 1.55;
+}
+
+.wpcf7 .consent .wpcf7-form-control-wrap {
+	grid-column: 1;
+	width: 18px;
+	min-height: 18px;
+	margin: 2px 0 0;
+}
+
+.wpcf7 .consent > span:not(.wpcf7-form-control-wrap) {
+	grid-column: 2;
+}
+
+.wpcf7 .wpcf7-list-item {
+	margin: 0;
+}
+
+.wpcf7 .wpcf7-list-item label {
+	display: inline-flex;
+	gap: 8px;
+	color: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	flex-direction: row;
+}
+
+.wpcf7 .wpcf7-list-item input[type="checkbox"] {
+	width: 18px;
+	min-height: 18px;
+	margin: 2px 0 0;
+}
+
+.wpcf7 input.wpcf7-submit {
+	justify-self: start;
+}
+
+.wpcf7 form .wpcf7-response-output {
+	margin: 24px 0 0;
+	padding: 14px 16px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: inherit;
+	border: 1px solid transparent;
+	border-radius: 0;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+	color: #bde7c9;
+	border-color: rgba(189, 231, 201, 0.4);
+	background: rgba(189, 231, 201, 0.08);
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.aborted .wpcf7-response-output,
+.wpcf7 form.spam .wpcf7-response-output {
+	color: #ffd0c9;
+	border-color: rgba(255, 208, 201, 0.4);
+	background: rgba(255, 208, 201, 0.08);
+}
+
+.wpcf7-not-valid-tip {
+	margin-top: 6px;
+	color: #ffd0c9;
+	font-size: 13px;
+}
+
+.wpcf7 form .wpcf7-response-output.wpcf7-display-none {
+	display: none;
+}
