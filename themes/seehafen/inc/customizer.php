@@ -119,7 +119,7 @@ function seehafen_customize_home_section( $wp_customize ) {
 		),
 		'seehafen_hero_image'   => array(
 			'label'   => __( 'Hero image URL', 'seehafen' ),
-			'default' => get_template_directory_uri() . '/assets/img/hero-team-house.png',
+			'default' => get_stylesheet_directory_uri() . '/assets/img/hero-team-house.png',
 		),
 		'seehafen_home_kicker'  => array(
 			'label'   => __( 'Home intro kicker', 'seehafen' ),

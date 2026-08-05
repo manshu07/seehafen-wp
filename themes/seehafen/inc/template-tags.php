@@ -50,7 +50,7 @@ function seehafen_icon( $name ) {
 function seehafen_logo() {
 	?>
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo" aria-label="<?php esc_attr_e( 'Seehafen & Partner – Startseite', 'seehafen' ); ?>">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo.png' ); ?>" alt="<?php esc_attr_e( 'Seehafen & Partner Immobilien AG', 'seehafen' ); ?>" />
+		<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/logo.png' ); ?>" alt="<?php esc_attr_e( 'Seehafen & Partner Immobilien AG', 'seehafen' ); ?>" />
 	</a>
 	<?php
 }
@@ -66,7 +66,7 @@ function seehafen_logo() {
  * @return void
  */
 function seehafen_page_hero( $label, $title, $text, $image = false ) {
-	$hero_image = ( false === $image ) ? null : ( $image ? $image : get_template_directory_uri() . '/assets/img/property-hero.jpg' );
+	$hero_image = ( false === $image ) ? null : ( $image ? $image : get_stylesheet_directory_uri() . '/assets/img/property-hero.jpg' );
 	$grid_class = $hero_image ? ' page-hero-grid' : ' page-hero-grid page-hero-grid-text-only';
 	?>
 	<section class="page-hero">
@@ -347,7 +347,7 @@ function seehafen_reference_tile( $post ) {
 	$image = get_the_post_thumbnail_url( $post, 'full' );
 
 	if ( ! $image ) {
-		$image = get_template_directory_uri() . '/assets/img/property-1.jpg';
+		$image = get_stylesheet_directory_uri() . '/assets/img/property-1.jpg';
 	}
 	?>
 	<article class="reference-tile">
@@ -384,7 +384,7 @@ function seehafen_offer_showcase() {
 		$image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 
 		if ( ! $image ) {
-			$image = get_template_directory_uri() . '/assets/img/property-1.jpg';
+			$image = get_stylesheet_directory_uri() . '/assets/img/property-1.jpg';
 		}
 
 		$items[] = array(

@@ -12,7 +12,7 @@ get_header();
 $hero_eyebrow = get_theme_mod( 'seehafen_hero_eyebrow', 'Langfristig. Persönlich. Verlässlich.' );
 $hero_title   = get_theme_mod( 'seehafen_hero_title', 'Immobilien<br />mit Weitblick.' );
 $hero_lead    = get_theme_mod( 'seehafen_hero_lead', 'Persönliche Beratung, verantwortungsvolle Entscheidungen und engagierte Begleitung.' );
-$hero_image   = get_theme_mod( 'seehafen_hero_image', get_template_directory_uri() . '/assets/img/hero-team-house.png' );
+$hero_image   = get_theme_mod( 'seehafen_hero_image', get_stylesheet_directory_uri() . '/assets/img/hero-team-house.png' );
 $home_kicker  = get_theme_mod( 'seehafen_home_kicker', 'Unsere Expertise' );
 $home_heading = get_theme_mod( 'seehafen_home_heading', 'Persönlich begleitet.<br />Klar entschieden.' );
 $home_intro   = get_theme_mod( 'seehafen_home_intro', 'Der Verkauf oder die Bewirtschaftung einer Liegenschaft ist mehr als eine Transaktion. Wir führen Sie sicher durch den gesamten Prozess – professionell, transparent und mit Herzblut.' );
@@ -54,7 +54,7 @@ $home_intro   = get_theme_mod( 'seehafen_home_intro', 'Der Verkauf oder die Bewi
 					}
 
 					if ( ! $image ) {
-						$image = get_template_directory_uri() . '/assets/img/team-1.jpg';
+						$image = get_stylesheet_directory_uri() . '/assets/img/team-1.jpg';
 					}
 
 					$home_text = get_post_meta( get_the_ID(), '_seehafen_home_text', true );

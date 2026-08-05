@@ -18,7 +18,7 @@ while ( have_posts() ) :
 	$detail_image = get_post_meta( get_the_ID(), '_seehafen_detail_image', true );
 
 	if ( ! $detail_image ) {
-		$detail_image = get_template_directory_uri() . '/assets/img/team-1.jpg';
+		$detail_image = get_stylesheet_directory_uri() . '/assets/img/team-1.jpg';
 	}
 
 	$points = get_post_meta( get_the_ID(), '_seehafen_points', true );

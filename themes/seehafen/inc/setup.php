@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  * @return void
  */
 function seehafen_setup() {
-	load_theme_textdomain( 'seehafen', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'seehafen', get_stylesheet_directory() . '/languages' );
 
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );

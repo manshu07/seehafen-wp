@@ -8,8 +8,7 @@ WordPress migration of the Seehafen & Partner Immobilien AG website (seehafen-im
 
 | Piece | Tech |
 |---|---|
-| Theme | `themes/seehafen` — custom **parent** theme (base design/framework), WP Coding Standards compliant |
-| Child theme | `themes/seehafen-child` — development/customization layer on top of the parent; template overrides live here |
+| Theme | `themes/seehafen` — **child theme** of the WordPress default (`twentytwentyfive` parent). 1:1 site port, WP Coding Standards compliant |
 | Content types | `plugins/seehafen-cpt` — CPTs: service (8), reference (28), offer (3), team_member (3) + taxonomies |
 | SEO | Rank Math plugin + manual per-page meta (title/description/canonical/OG) |
 | Forms | Custom AJAX contact form → `wp_mail` (nonce + honeypot + sanitization) |
@@ -59,8 +58,7 @@ wp rewrite flush
 ## Structure
 
 ```
-themes/seehafen/        parent theme (templates, inc/, assets/css/js/img)
-themes/seehafen-child/  child theme — override layer; copy any parent template here to customize
+themes/seehafen/        child theme of the WP default (twentytwentyfive) — all site templates/code
 plugins/seehafen-cpt/   CPT + taxonomy + meta box plugin
 setup/                  one-time content seed scripts (1:1 SPA data)
 docs/                   planning doc
@@ -68,11 +66,11 @@ docs/                   planning doc
 
 ## Child theme concept
 
-- `seehafen` is the **parent** (design + framework). `seehafen-child` is the active **child**.
-- WordPress checks the child theme's templates first — copy e.g. `front-page.php` from parent into the child to override it.
-- Child `functions.php` loads **in addition to** the parent's — add custom hooks there.
-- Child `style.css` loads after the parent stylesheet (`seehafen-main` dependency).
-- Parent updates never clobber child customizations.
+- **Parent = the WordPress default theme `twentytwentyfive`** (ships with every WP install, receives core updates).
+- `seehafen` is the **child theme** — all site code lives here (`Template: twentytwentyfive` in style.css).
+- Child templates are checked first; anything the child doesn't provide falls back to the parent.
+- Child `functions.php` loads **in addition to** the parent's — parent updates never clobber the site.
+- Theme asset paths use `get_stylesheet_directory_uri()` (child-relative).
 
 ## WP Coding Standards
 

@@ -15,14 +15,14 @@ defined( 'ABSPATH' ) || exit;
 function seehafen_enqueue_assets() {
 	wp_enqueue_style(
 		'seehafen-main',
-		get_template_directory_uri() . '/assets/css/main.css',
+		get_stylesheet_directory_uri() . '/assets/css/main.css',
 		array(),
 		SEEHAFEN_VERSION
 	);
 
 	wp_enqueue_script(
 		'seehafen-main',
-		get_template_directory_uri() . '/assets/js/main.js',
+		get_stylesheet_directory_uri() . '/assets/js/main.js',
 		array(),
 		SEEHAFEN_VERSION,
 		true

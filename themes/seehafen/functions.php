@@ -9,14 +9,14 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'SEEHAFEN_VERSION', '1.0.0' );
 
-require_once get_template_directory() . '/inc/setup.php';
-require_once get_template_directory() . '/inc/enqueue.php';
-require_once get_template_directory() . '/inc/class-seehafen-nav-walker.php';
-require_once get_template_directory() . '/inc/ajax.php';
-require_once get_template_directory() . '/inc/customizer.php';
-require_once get_template_directory() . '/inc/template-tags.php';
-require_once get_template_directory() . '/inc/seo.php';
-require_once get_template_directory() . '/inc/contact-form.php';
+require_once get_stylesheet_directory() . '/inc/setup.php';
+require_once get_stylesheet_directory() . '/inc/enqueue.php';
+require_once get_stylesheet_directory() . '/inc/class-seehafen-nav-walker.php';
+require_once get_stylesheet_directory() . '/inc/ajax.php';
+require_once get_stylesheet_directory() . '/inc/customizer.php';
+require_once get_stylesheet_directory() . '/inc/template-tags.php';
+require_once get_stylesheet_directory() . '/inc/seo.php';
+require_once get_stylesheet_directory() . '/inc/contact-form.php';
 
 /**
  * Redirect /immobilien to the Homegate profile (matches the SPA worker).

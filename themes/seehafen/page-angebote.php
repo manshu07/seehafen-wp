@@ -20,7 +20,7 @@ get_header();
 			</div>
 			<div class="overview-link-grid">
 				<a href="<?php echo esc_url( seehafen_homegate_url() ); ?>" class="overview-link-card" target="_blank" rel="noreferrer">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/property-3.jpg' ); ?>" alt="" loading="lazy" />
+					<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/property-3.jpg' ); ?>" alt="" loading="lazy" />
 					<div>
 						<h2><?php esc_html_e( 'Aktuelle Angebote', 'seehafen' ); ?></h2>
 						<p><?php esc_html_e( 'Verfügbare Kauf- und Mietobjekte auf unserem offiziellen Anbieterprofil.', 'seehafen' ); ?></p>
@@ -28,7 +28,7 @@ get_header();
 					</div>
 				</a>
 				<a href="<?php echo esc_url( home_url( '/referenzen/' ) ); ?>" class="overview-link-card">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/property-2.jpg' ); ?>" alt="" loading="lazy" />
+					<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/property-2.jpg' ); ?>" alt="" loading="lazy" />
 					<div>
 						<h2><?php esc_html_e( 'Referenzen', 'seehafen' ); ?></h2>
 						<p><?php esc_html_e( 'Eine Auswahl verkaufter, vermieteter und verwalteter Immobilien.', 'seehafen' ); ?></p>

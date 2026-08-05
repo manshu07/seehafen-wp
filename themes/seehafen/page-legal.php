@@ -17,7 +17,7 @@ while ( have_posts() ) :
 		__( 'Rechtliches', 'seehafen' ),
 		get_the_title(),
 		get_the_excerpt(),
-		get_template_directory_uri() . '/assets/img/property-hero.jpg'
+		get_stylesheet_directory_uri() . '/assets/img/property-hero.jpg'
 	);
 	?>
 	<section class="legal-page">

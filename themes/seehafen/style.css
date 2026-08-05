@@ -1,9 +1,10 @@
 /*
 Theme Name: Seehafen
-Theme URI: https://github.com/manshu07/seehafen-wordpress
+Theme URI: https://github.com/manshu07/seehafen-wp
+Template: twentytwentyfive
 Author: NightMule 9000
 Author URI: https://github.com/manshu07
-Description: Custom classic theme for Seehafen & Partner Immobilien AG. 1:1 port of the React SPA — design and animation unchanged. All content is dynamic: CPTs, menus, Customizer.
+Description: Child theme of the WordPress default (twentytwentyfive) for Seehafen & Partner Immobilien AG. 1:1 port of the React SPA — design and animation unchanged. All content is dynamic: CPTs, menus, Customizer.
 Version: 1.0.0
 Requires at least: 6.0
 Tested up to: 6.7

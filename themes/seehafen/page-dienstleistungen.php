@@ -17,7 +17,7 @@ $additional = seehafen_get_services( 'additional' );
 		__( 'Dienstleistungen', 'seehafen' ),
 		__( 'Immobilien. Einfach gut begleitet.', 'seehafen' ),
 		__( 'Umfassende Immobiliendienstleistungen für Eigentümer, Investoren und Mieter – mit einem festen Ansprechpartner und klaren Lösungen.', 'seehafen' ),
-		get_template_directory_uri() . '/assets/img/property-hero.jpg'
+		get_stylesheet_directory_uri() . '/assets/img/property-hero.jpg'
 	);
 	?>
 
@@ -30,7 +30,7 @@ $additional = seehafen_get_services( 'additional' );
 				$image = get_post_meta( get_the_ID(), '_seehafen_hero_image', true );
 
 				if ( ! $image ) {
-					$image = get_template_directory_uri() . '/assets/img/property-hero.jpg';
+					$image = get_stylesheet_directory_uri() . '/assets/img/property-hero.jpg';
 				}
 				?>
 				<article class="primary-service-card">
@@ -63,7 +63,7 @@ $additional = seehafen_get_services( 'additional' );
 					$image  = get_post_meta( get_the_ID(), '_seehafen_hero_image', true );
 
 					if ( ! $image ) {
-						$image = get_template_directory_uri() . '/assets/img/property-1.jpg';
+						$image = get_stylesheet_directory_uri() . '/assets/img/property-1.jpg';
 					}
 
 					$points = get_post_meta( get_the_ID(), '_seehafen_points', true );
