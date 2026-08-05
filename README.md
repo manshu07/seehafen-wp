@@ -8,7 +8,8 @@ WordPress migration of the Seehafen & Partner Immobilien AG website (seehafen-im
 
 | Piece | Tech |
 |---|---|
-| Theme | `themes/seehafen` — custom classic theme, WP Coding Standards compliant |
+| Theme | `themes/seehafen` — custom **parent** theme (base design/framework), WP Coding Standards compliant |
+| Child theme | `themes/seehafen-child` — development/customization layer on top of the parent; template overrides live here |
 | Content types | `plugins/seehafen-cpt` — CPTs: service (8), reference (28), offer (3), team_member (3) + taxonomies |
 | SEO | Rank Math plugin + manual per-page meta (title/description/canonical/OG) |
 | Forms | Custom AJAX contact form → `wp_mail` (nonce + honeypot + sanitization) |
@@ -58,11 +59,20 @@ wp rewrite flush
 ## Structure
 
 ```
-themes/seehafen/        custom theme (templates, inc/, assets/css/js/img)
+themes/seehafen/        parent theme (templates, inc/, assets/css/js/img)
+themes/seehafen-child/  child theme — override layer; copy any parent template here to customize
 plugins/seehafen-cpt/   CPT + taxonomy + meta box plugin
 setup/                  one-time content seed scripts (1:1 SPA data)
 docs/                   planning doc
 ```
+
+## Child theme concept
+
+- `seehafen` is the **parent** (design + framework). `seehafen-child` is the active **child**.
+- WordPress checks the child theme's templates first — copy e.g. `front-page.php` from parent into the child to override it.
+- Child `functions.php` loads **in addition to** the parent's — add custom hooks there.
+- Child `style.css` loads after the parent stylesheet (`seehafen-main` dependency).
+- Parent updates never clobber child customizations.
 
 ## WP Coding Standards
 
