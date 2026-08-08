@@ -268,7 +268,7 @@ function seehafen_secondary_services_shortcode() {
 	foreach ( $additional as $svc ) {
 		$img = '';
 		if ( ! empty( $svc['image'] ) ) {
-			$attachments = get_posts( array( 'post_type' => 'attachment', 'posts_per_page' => 1, 'meta_key' => '_wp_attached_file', 'meta_value' => 'assets/' . basename( $svc['image'] ), 'meta_compare' => 'LIKE', 'fields' => 'ids' ) );
+			$attachments = get_posts( array( 'post_type' => 'attachment', 'posts_per_page' => 1, 'meta_key' => '_wp_attached_file', 'meta_value' => basename( $svc['image'] ), 'meta_compare' => 'LIKE', 'fields' => 'ids' ) );
 			if ( $attachments ) {
 				$img = wp_get_attachment_url( $attachments[0] );
 			}
@@ -387,22 +387,54 @@ add_shortcode( 'seehafen_company_about', 'seehafen_company_about_shortcode' );
  */
 function seehafen_page_hero_shortcode( $atts ) {
 	$atts = shortcode_atts( array( 'label' => '', 'title' => '', 'text' => '', 'image' => '' ), $atts, 'seehafen_page_hero' );
-	$hero_image = '';
-	if ( $atts['image'] ) {
-		$hero_image = '<div class="page-hero-media"><img src="' . esc_url( $atts['image'] ) . '" alt="" /></div>';
+	$default_images = array(
+		'Firma'            => 'about.jpg',
+		'Dienstleistungen' => 'property-hero.jpg',
+		'Immobilien'       => 'property-1.jpg',
+		'Angebote'         => 'property-1.jpg',
+		'Kontakt'          => 'team-2.jpg',
+		'Rechtliches'      => 'property-hero.jpg',
+	);
+	$img = '';
+	if ( 'none' !== $atts['image'] ) {
+		$src = $atts['image'];
+		if ( ! $src && isset( $default_images[ $atts['label'] ] ) ) {
+			$src = seehafen_asset_url( $default_images[ $atts['label'] ] );
+		}
+		if ( $src ) {
+			$img = '<div class="page-hero-media"><img src="' . esc_url( $src ) . '" alt="" /></div>';
+		}
 	}
 	return '<section class="page-hero">
-		<div class="content page-hero-grid' . ( $hero_image ? '' : ' page-hero-grid-text-only' ) . '">
+		<div class="content page-hero-grid' . ( $img ? '' : ' page-hero-grid-text-only' ) . '">
 			<div class="page-hero-copy">
 				<span class="kicker">' . esc_html( $atts['label'] ) . '</span>
 				<h1>' . esc_html( $atts['title'] ) . '</h1>
 				<p>' . esc_html( $atts['text'] ) . '</p>
 			</div>
-			' . $hero_image . '
+			' . $img . '
 		</div>
 	</section>';
 }
 add_shortcode( 'seehafen_page_hero', 'seehafen_page_hero_shortcode' );
+
+/**
+ * Resolve a theme asset or uploaded asset URL by basename.
+ *
+ * @param string $basename File basename.
+ * @return string URL.
+ */
+function seehafen_asset_url( $basename ) {
+	$attachments = get_posts( array( 'post_type' => 'attachment', 'posts_per_page' => 1, 'meta_key' => '_wp_attached_file', 'meta_value' => $basename, 'meta_compare' => 'LIKE', 'fields' => 'ids' ) );
+	if ( $attachments ) {
+		return wp_get_attachment_url( $attachments[0] );
+	}
+	$theme_file = get_stylesheet_directory() . '/assets/' . $basename;
+	if ( file_exists( $theme_file ) ) {
+		return get_stylesheet_directory_uri() . '/assets/' . $basename;
+	}
+	return '';
+}
 
 /**
  * Render the overview links (Angebote page).
@@ -410,8 +442,8 @@ add_shortcode( 'seehafen_page_hero', 'seehafen_page_hero_shortcode' );
 function seehafen_overview_links_shortcode() {
 	$img_prop3 = '';
 	$img_prop2 = '';
-	$prop3 = get_posts( array( 'post_type' => 'attachment', 'posts_per_page' => 1, 'meta_key' => '_wp_attached_file', 'meta_value' => 'assets/property-3.jpg', 'meta_compare' => 'LIKE', 'fields' => 'ids' ) );
-	$prop2 = get_posts( array( 'post_type' => 'attachment', 'posts_per_page' => 1, 'meta_key' => '_wp_attached_file', 'meta_value' => 'assets/property-2.jpg', 'meta_compare' => 'LIKE', 'fields' => 'ids' ) );
+	$prop3 = get_posts( array( 'post_type' => 'attachment', 'posts_per_page' => 1, 'meta_key' => '_wp_attached_file', 'meta_value' => 'property-3.jpg', 'meta_compare' => 'LIKE', 'fields' => 'ids' ) );
+	$prop2 = get_posts( array( 'post_type' => 'attachment', 'posts_per_page' => 1, 'meta_key' => '_wp_attached_file', 'meta_value' => 'property-2.jpg', 'meta_compare' => 'LIKE', 'fields' => 'ids' ) );
 	if ( $prop3 ) { $img_prop3 = wp_get_attachment_url( $prop3[0] ); }
 	if ( $prop2 ) { $img_prop2 = wp_get_attachment_url( $prop2[0] ); }
 	return '<section class="overview-links">
@@ -473,7 +505,14 @@ add_shortcode( 'seehafen_contact_intro', 'seehafen_contact_intro_shortcode' );
  */
 function seehafen_contact_form_shortcode() {
 	$form = do_shortcode( '[contact-form-7 title="Kontaktformular"]' );
-	return '<div class="contact-form">' . $form . '</div>';
+	return '<div class="contact-form">
+		<div class="form-heading">
+			<span class="kicker">Nachricht senden</span>
+			<h2>Ihre Anfrage</h2>
+			<p>Füllen Sie nur die notwendigen Angaben aus.</p>
+		</div>
+		' . $form . '
+	</div>';
 }
 add_shortcode( 'seehafen_contact_form', 'seehafen_contact_form_shortcode' );
 

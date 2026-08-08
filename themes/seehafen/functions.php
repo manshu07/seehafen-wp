@@ -120,6 +120,44 @@ function seehafen_elementor_css() {
 	/* Offer showcase multi-stage: only the active stage is visible. */
 	.offer-showcase-stage { display: none; }
 	.offer-showcase-stage.is-active { display: grid; }
+
+	/* CF7 form — SPA form styling. CF7 emits one giant <p>; flatten it so labels become grid cells. */
+	.contact-form .form-fields p { display: contents; }
+	.contact-form .form-fields br { display: none; }
+	.contact-form .form-fields label {
+		display: flex; gap: 8px; margin: 0;
+		color: rgba(255, 255, 255, 0.82);
+		font-size: 13px; font-weight: 650; flex-direction: column;
+	}
+	.contact-form .form-fields label.full { grid-column: 1 / -1; }
+	.contact-form .form-fields .wpcf7-form-control-wrap { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+	.contact-form .form-fields .wpcf7-text,
+	.contact-form .form-fields .wpcf7-email,
+	.contact-form .form-fields .wpcf7-tel,
+	.contact-form .form-fields .wpcf7-select,
+	.contact-form .form-fields .wpcf7-textarea {
+		width: 100%; min-height: 50px; padding: 12px 14px;
+		color: var(--seehafen-ink); background: #fff;
+		border: 1px solid transparent; border-radius: 0;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px;
+	}
+	.contact-form .form-fields .wpcf7-textarea { min-height: 145px; resize: vertical; }
+	.contact-form .form-fields .wpcf7-text:focus,
+	.contact-form .form-fields .wpcf7-email:focus,
+	.contact-form .form-fields .wpcf7-tel:focus,
+	.contact-form .form-fields .wpcf7-select:focus,
+	.contact-form .form-fields .wpcf7-textarea:focus {
+		border-color: #c9a063; outline: 2px solid #c9a063; outline-offset: 1px;
+	}
+	.contact-form .form-fields label.consent { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 11px; align-items: start; font-weight: 400; line-height: 1.55; }
+	.contact-form .form-fields label.consent .wpcf7-list-item { margin: 0; }
+	.contact-form .form-fields label.consent input[type="checkbox"] { width: 18px; height: 18px; accent-color: #c9a063; margin: 2px 0 0; }
+	.contact-form .form-fields .button { justify-self: start; }
+	.contact-form .wpcf7-response-output { margin: 0; padding: 14px 16px; font-size: 14px; }
+	.contact-form .wpcf7-not-valid-tip { color: #ffb4a2; font-size: 12px; }
+	.contact-form .wpcf7 form.invalid .wpcf7-response-output,
+	.contact-form .wpcf7 form.failed .wpcf7-response-output,
+	.contact-form .wpcf7 form.sent .wpcf7-response-output { border: 1px solid rgba(255,255,255,0.25); color: #fff; background: rgba(255,255,255,0.06); }
 	';
 	wp_add_inline_style( 'seehafen-main', $css );
 }

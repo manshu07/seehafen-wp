@@ -121,9 +121,54 @@ add_shortcode(
 
 // ---------- Legal pages content ----------
 $legal_pages = array(
-	'impressum'   => '<h2>Unternehmensinformationen</h2><p><strong>Seehafen &amp; Partner Immobilien AG</strong><br />Bahnhofstrasse 4<br />6430 Schwyz<br />Schweiz</p><h2>Kontakt</h2><p>E-Mail: <a href="mailto:info@seehafen-immobilien.ch">info@seehafen-immobilien.ch</a></p><h2>Handelsregistereintrag</h2><p>Eingetragener Firmenname: Seehafen &amp; Partner Immobilien AG<br />Handelsregister des Kantons Schwyz<br />UID: CHE-437.125.709</p><h2>Haftungsausschluss</h2><p>Die Inhalte dieser Website werden mit grösster Sorgfalt erstellt und regelmässig geprüft. Dennoch übernimmt die Seehafen &amp; Partner Immobilien AG keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Informationen.</p><h2>Urheberrecht</h2><p>Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen dem schweizerischen Urheberrecht. Jede Art der Vervielfältigung, Bearbeitung, Verbreitung oder sonstigen Verwertung ausserhalb der Grenzen des Urheberrechts bedarf der vorgängigen schriftlichen Zustimmung des jeweiligen Rechteinhabers.</p>',
-	'datenschutz' => '<p>Der Schutz Ihrer persönlichen Daten ist der Seehafen &amp; Partner Immobilien AG ein wichtiges Anliegen. In dieser Datenschutzerklärung informieren wir Sie darüber, wie personenbezogene Daten auf dieser Website bearbeitet werden.</p><h2>Verantwortliche Stelle</h2><p>Verantwortlich für die Datenbearbeitung im Sinne des schweizerischen Datenschutzgesetzes (DSG) ist:</p><p><strong>Seehafen &amp; Partner Immobilien AG</strong><br />Bahnhofstrasse 4<br />6430 Schwyz<br />Schweiz<br />E-Mail: <a href="mailto:info@seehafen-immobilien.ch">info@seehafen-immobilien.ch</a></p><h2>Erhebung und Bearbeitung personenbezogener Daten</h2><p>Personenbezogene Daten werden erhoben, wenn Sie uns diese freiwillig mitteilen, beispielsweise bei der Kontaktaufnahme per E-Mail oder über ein Kontaktformular. Die Bearbeitung erfolgt ausschliesslich zum Zweck der Bearbeitung Ihrer Anfrage oder zur Kontaktaufnahme.</p><h2>Weitergabe von Daten an Dritte</h2><p>Eine Weitergabe personenbezogener Daten an Dritte erfolgt nur, sofern dies zur Vertragserfüllung erforderlich ist, eine gesetzliche Verpflichtung besteht oder Sie ausdrücklich eingewilligt haben.</p><h2>Cookies</h2><p>Diese Website verwendet Cookies, um die Funktionalität und Benutzerfreundlichkeit zu verbessern. Sie können die Verwendung von Cookies in den Einstellungen Ihres Browsers einschränken oder deaktivieren.</p><h2>Rechte der betroffenen Personen</h2><p>Sie haben im Rahmen der geltenden datenschutzrechtlichen Bestimmungen das Recht auf Auskunft über die zu Ihrer Person gespeicherten Daten sowie das Recht auf Berichtigung, Löschung oder Einschränkung der Bearbeitung. Anfragen richten Sie bitte an die oben genannte Kontaktadresse.</p>',
-	'agb'         => '<h2>1. Geltungsbereich</h2><p>Diese AGB gelten für alle Dienstleistungen der Seehafen &amp; Partner Immobilien AG im Bereich Immobilienbewirtschaftung, Vermarktung, Beratung und verwandte Dienstleistungen.</p><h2>2. Vertragsabschluss</h2><p>Ein Vertrag kommt durch schriftliche Bestätigung des Auftrags durch die Seehafen &amp; Partner Immobilien AG zustande.</p><h2>3. Leistungsumfang</h2><p>Der Umfang der zu erbringenden Leistungen ergibt sich aus dem jeweiligen Einzelvertrag.</p><h2>4. Honorare und Zahlungsbedingungen</h2><p>Die Honorare werden im Einzelvertrag vereinbart. Rechnungen sind innert 30 Tagen nach Rechnungsstellung ohne Abzug zahlbar.</p><h2>5. Vertraulichkeit</h2><p>Die Seehafen &amp; Partner Immobilien AG verpflichtet sich, alle im Rahmen der Geschäftsbeziehung erlangten Informationen vertraulich zu behandeln.</p><h2>6. Haftung</h2><p>Die Haftung der Seehafen &amp; Partner Immobilien AG beschränkt sich auf Vorsatz und grobe Fahrlässigkeit.</p><h2>7. Anwendbares Recht und Gerichtsstand</h2><p>Es gilt schweizerisches Recht. Ausschliesslicher Gerichtsstand ist Schwyz.</p>',
+	'impressum' => '<h2>Unternehmensinformationen</h2>
+<p><strong>Seehafen &amp; Partner Immobilien AG</strong><br />Bahnhofstrasse 4<br />6430 Schwyz<br />Schweiz</p>
+<h2>Kontakt</h2>
+<p>E-Mail: <a href="mailto:info@seehafen-immobilien.ch">info@seehafen-immobilien.ch</a></p>
+<h2>Handelsregistereintrag</h2>
+<p>Eingetragener Firmenname: Seehafen &amp; Partner Immobilien AG<br />Handelsregister des Kantons Schwyz<br />UID: CHE-437.125.709</p>
+<h2>Haftungsausschluss</h2>
+<p>Die Inhalte dieser Website werden mit grösster Sorgfalt erstellt und regelmässig geprüft. Dennoch übernimmt die Seehafen &amp; Partner Immobilien AG keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Informationen.</p>
+<p>Als Diensteanbieter sind wir gemäss den anwendbaren gesetzlichen Bestimmungen für eigene Inhalte auf diesen Seiten verantwortlich. Eine Verpflichtung zur Überwachung übermittelter oder gespeicherter fremder Informationen besteht nicht. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden diese Inhalte umgehend entfernt.</p>
+<h2>Urheberrecht</h2>
+<p>Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen dem schweizerischen Urheberrecht. Jede Art der Vervielfältigung, Bearbeitung, Verbreitung oder sonstigen Verwertung ausserhalb der Grenzen des Urheberrechts bedarf der vorgängigen schriftlichen Zustimmung des jeweiligen Rechteinhabers.</p>',
+	'datenschutz' => '<p>Der Schutz Ihrer persönlichen Daten ist der Seehafen &amp; Partner Immobilien AG ein wichtiges Anliegen. In dieser Datenschutzerklärung informieren wir Sie darüber, wie personenbezogene Daten auf dieser Website bearbeitet werden.</p>
+<h2>Verantwortliche Stelle</h2>
+<p>Verantwortlich für die Datenbearbeitung im Sinne des schweizerischen Datenschutzgesetzes (DSG) ist:</p>
+<p><strong>Seehafen &amp; Partner Immobilien AG</strong><br />Bahnhofstrasse 4<br />6430 Schwyz<br />Schweiz<br />E-Mail: <a href="mailto:info@seehafen-immobilien.ch">info@seehafen-immobilien.ch</a></p>
+<h2>Erhebung und Bearbeitung personenbezogener Daten</h2>
+<p>Personenbezogene Daten werden erhoben, wenn Sie uns diese freiwillig mitteilen, beispielsweise bei der Kontaktaufnahme per E-Mail oder über ein Kontaktformular. Dabei kann es sich insbesondere um Name, E-Mail-Adresse, Telefonnummer oder weitere von Ihnen übermittelte Informationen handeln. Die Bearbeitung dieser Daten erfolgt ausschliesslich zum Zweck der Bearbeitung Ihrer Anfrage oder zur Kontaktaufnahme mit Ihnen.</p>
+<h2>Zweck der Datenbearbeitung</h2>
+<p>Die Bearbeitung personenbezogener Daten erfolgt zur Beantwortung von Anfragen, zur Erfüllung vertraglicher und vorvertraglicher Pflichten sowie zur Erbringung unserer Dienstleistungen im Bereich Immobilien.</p>
+<h2>Weitergabe von Daten an Dritte</h2>
+<p>Eine Weitergabe personenbezogener Daten an Dritte erfolgt nur, sofern dies zur Vertragserfüllung erforderlich ist, eine gesetzliche Verpflichtung besteht oder Sie ausdrücklich eingewilligt haben. Eine Übermittlung ins Ausland oder an Drittstaaten findet nicht statt.</p>
+<h2>Datensicherheit</h2>
+<p>Wir setzen angemessene technische und organisatorische Sicherheitsmassnahmen ein, um personenbezogene Daten vor unbefugtem Zugriff, Verlust, Missbrauch oder Manipulation zu schützen. Diese Massnahmen werden entsprechend der technologischen Entwicklung laufend angepasst.</p>
+<h2>Cookies</h2>
+<p>Diese Website verwendet Cookies, um die Funktionalität und Benutzerfreundlichkeit zu verbessern. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie können die Verwendung von Cookies in den Einstellungen Ihres Browsers einschränken oder deaktivieren. Die Deaktivierung kann die Funktionalität der Website beeinträchtigen.</p>
+<h2>Rechte der betroffenen Personen</h2>
+<p>Sie haben im Rahmen der geltenden datenschutzrechtlichen Bestimmungen das Recht auf Auskunft über die zu Ihrer Person gespeicherten Daten sowie das Recht auf Berichtigung, Löschung oder Einschränkung der Bearbeitung. Anfragen richten Sie bitte an die oben genannte Kontaktadresse.</p>
+<h2>Änderungen dieser Datenschutzerklärung</h2>
+<p>Die Seehafen &amp; Partner Immobilien AG behält sich vor, diese Datenschutzerklärung jederzeit anzupassen, insbesondere bei Änderungen gesetzlicher Vorgaben oder bei Weiterentwicklungen der Website oder Dienstleistungen.</p>',
+	'agb' => '<h2>1. Geltungsbereich</h2>
+<p>Diese AGB gelten für alle Dienstleistungen der Seehafen &amp; Partner Immobilien AG im Bereich Immobilienbewirtschaftung, Vermarktung, Beratung und verwandte Dienstleistungen.</p>
+<h2>2. Vertragsabschluss</h2>
+<p>Ein Vertrag kommt durch schriftliche Bestätigung des Auftrags durch die Seehafen &amp; Partner Immobilien AG zustande. Mündliche Nebenabreden bedürfen der schriftlichen Bestätigung.</p>
+<h2>3. Leistungsumfang</h2>
+<p>Der Umfang der zu erbringenden Leistungen ergibt sich aus dem jeweiligen Einzelvertrag. Die Seehafen &amp; Partner Immobilien AG erbringt ihre Leistungen mit der Sorgfalt eines ordentlichen Kaufmanns.</p>
+<h2>4. Honorare und Zahlungsbedingungen</h2>
+<p>Die Honorare werden im Einzelvertrag vereinbart. Rechnungen sind innert 30 Tagen nach Rechnungsstellung ohne Abzug zahlbar. Bei Zahlungsverzug werden Verzugszinsen von 5 % p. a. berechnet.</p>
+<h2>5. Vertraulichkeit</h2>
+<p>Die Seehafen &amp; Partner Immobilien AG verpflichtet sich, alle im Rahmen der Geschäftsbeziehung erlangten Informationen vertraulich zu behandeln.</p>
+<h2>6. Haftung</h2>
+<p>Die Haftung der Seehafen &amp; Partner Immobilien AG beschränkt sich auf Vorsatz und grobe Fahrlässigkeit. Eine weitergehende Haftung ist ausgeschlossen, soweit gesetzlich zulässig.</p>
+<h2>7. Anwendbares Recht und Gerichtsstand</h2>
+<p>Es gilt schweizerisches Recht. Ausschliesslicher Gerichtsstand ist Schwyz.</p>',
+);
+$legal_titles = array(
+	'impressum' => 'Impressum',
+	'datenschutz' => 'Datenschutzerklärung',
+	'agb' => 'Allgemeine Geschäftsbedingungen'
 );
 
 $built = array();
@@ -245,7 +290,7 @@ foreach ( $legal_pages as $slug => $html ) {
 		'agb'         => 'Diese AGB regeln die Geschäftsbeziehung zwischen der Seehafen & Partner Immobilien AG und ihren Kunden.',
 	);
 	$data = array(
-		sh2_section( array( sh2_shortcode_widget( '[seehafen_page_hero label="Rechtliches" title="' . ucfirst( $slug ) . '" text="' . $intro[ $slug ] . '"]' ) ), 'page-hero-section' ),
+		sh2_section( array( sh2_shortcode_widget( '[seehafen_page_hero label="Rechtliches" title="' . ( $legal_titles[ $slug ] ?? ucfirst( $slug ) ) . '" text="' . $intro[ $slug ] . '"]' ) ), 'page-hero-section' ),
 		sh2_section( array( sh2_html_widget( '<section class="legal-page"><div class="content legal-content">' . $html . '</div></section>' ) ), 'legal-section' ),
 	);
 	sh2_save( $id, $data );

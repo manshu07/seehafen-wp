@@ -1,0 +1,120 @@
+<?php
+/**
+ * Seehafen child theme functions.
+ *
+ * Plugin-first build: this theme only carries the original design CSS
+ * (verbatim from the SPA) plus a thin Elementor-matching layer.
+ *
+ * @package Seehafen
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+define( 'SEEHAFEN_VERSION', '2.0.0' );
+
+/**
+ * Theme setup.
+ */
+function seehafen_setup() {
+	load_child_theme_textdomain( 'seehafen', get_stylesheet_directory() . '/languages' );
+
+	add_theme_support( 'title-tag' );
+	add_theme_support( 'post-thumbnails' );
+
+	register_nav_menus(
+		array(
+			'primary' => __( 'Hauptmenü', 'seehafen' ),
+		)
+	);
+}
+add_action( 'after_setup_theme', 'seehafen_setup' );
+
+// Elementor: don't print its Google Fonts (SPA uses system font stack).
+add_filter( 'elementor/frontend/print_google_fonts', '__return_false' );
+add_filter( 'elementor/frontend/print_font_awesome', '__return_true' );
+
+require_once get_stylesheet_directory() . '/inc/class-seehafen-nav-walker.php';
+require_once get_stylesheet_directory() . '/inc/shortcodes.php';
+
+/**
+ * Enqueue parent + child styles.
+ */
+function seehafen_enqueue_styles() {
+	// Parent theme style (Twenty Twenty-Five).
+	wp_enqueue_style(
+		'seehafen-parent',
+		get_template_directory_uri() . '/style.css',
+		array(),
+		wp_get_theme( 'twentytwentyfive' )->get( 'Version' )
+	);
+
+	// Original SPA design CSS (verbatim).
+	wp_enqueue_style(
+		'seehafen-main',
+		get_stylesheet_directory_uri() . '/assets/css/main.css',
+		array( 'seehafen-parent' ),
+		SEEHAFEN_VERSION
+	);
+}
+add_action( 'wp_enqueue_scripts', 'seehafen_enqueue_styles' );
+
+/**
+ * Allow Elementor widgets to inherit the theme design tokens.
+ */
+function seehafen_elementor_css() {
+	$css = '
+	:root {
+		--seehafen-ink: #071f42;
+		--seehafen-accent: #c9a063;
+		--seehafen-bg: #f8f7f4;
+	}
+	/* Neutralize Elementor kit defaults — the SPA design CSS owns typography. */
+	body,
+	.elementor-kit,
+	.elementor-kit body,
+	.elementor-page body {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+		color: #071f42 !important;
+		background-color: #ffffff !important;
+	}
+	.elementor-kit h1, .elementor-kit h2, .elementor-kit h3, .elementor-kit h4, .elementor-kit h5, .elementor-kit h6,
+	.elementor-widget-heading h1, .elementor-widget-heading h2, .elementor-widget-heading h3, .elementor-widget-heading h4 {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+		color: #071f42 !important;
+	}
+	.elementor-widget { margin-bottom: 0 !important; }
+	.elementor-section .elementor-heading-title,
+	.elementor-widget-heading h1,
+	.elementor-widget-heading h2,
+	.elementor-widget-heading h3,
+	.elementor-widget-heading h4 {
+		color: var(--seehafen-ink);
+	}
+	.elementor-button {
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-weight: 700;
+	}
+	/* Offer showcase multi-stage: only the active stage is visible. */
+	.offer-showcase-stage { display: none; }
+	.offer-showcase-stage.is-active { display: grid; }
+	';
+	wp_add_inline_style( 'seehafen-main', $css );
+}
+add_action( 'wp_enqueue_scripts', 'seehafen_elementor_css', 20 );
+
+/**
+ * Enqueue the theme JS (SPA behavior port).
+ */
+function seehafen_enqueue_scripts() {
+	wp_enqueue_script(
+		'seehafen-main',
+		get_stylesheet_directory_uri() . '/assets/js/main.js',
+		array(),
+		SEEHAFEN_VERSION,
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'seehafen_enqueue_scripts' );
