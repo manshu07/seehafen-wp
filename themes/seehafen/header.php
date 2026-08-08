@@ -25,13 +25,13 @@
 				array(
 					'theme_location' => 'primary',
 					'container'      => false,
-					'menu_class'     => 'main-nav-list',
+					'items_wrap'     => '%3$s',
 					'walker'         => new Seehafen_Nav_Walker(),
 					'fallback_cb'    => false,
 				)
 			);
 			?>
-			<a class="header-cta" href="<?php echo esc_url( home_url( '/kontakt' ) ); ?>"><?php esc_html_e( 'Kostenlose Bewertung', 'seehafen' ); ?> →</a>
+			<a class="header-cta" href="<?php echo esc_url( home_url( '/kontakt' ) ); ?>"><?php esc_html_e( 'Kostenlose Bewertung', 'seehafen' ); ?> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
 		</nav>
 		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="<?php esc_attr_e( 'Menü öffnen', 'seehafen' ); ?>">
 			<span class="nav-toggle-icon"></span>

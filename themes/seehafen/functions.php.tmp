@@ -97,26 +97,6 @@ function seehafen_elementor_css() {
 		letter-spacing: 0.08em;
 		font-weight: 700;
 	}
-	/* Neutralize Elementor global image flattening on design components. */
-	.elementor .hero img, .elementor .logo img, .elementor .home-service-card img,
-	.elementor .offer-showcase-image img, .elementor .reference-tile img,
-	.elementor .page-hero-media img, .elementor .overview-link-card img,
-	.elementor .primary-service-card img, .elementor .secondary-service-grid article img,
-	.elementor .service-detail-support img {
-		border-radius: revert;
-		box-shadow: revert;
-		max-width: revert;
-	}
-	.elementor .home-service-card > img { height: 250px; }
-	.elementor .reference-tile > img { height: 220px; }
-	.elementor .overview-link-card > img { height: 235px; }
-	.elementor .primary-service-card > img { height: 210px; }
-	.elementor .service-detail-support > img { height: 330px; }
-	.elementor .hero > img { position: absolute; top: 0; right: 0; bottom: 0; width: 64%; height: 100%; object-position: center 56%; }
-	.elementor .offer-showcase-image img { position: absolute; height: 100%; }
-	.elementor .page-hero-media img { width: 100%; }
-	.elementor .offer-showcase-stage { display: none; }
-	.elementor .offer-showcase-stage.is-active { display: grid; }
 	/* Offer showcase multi-stage: only the active stage is visible. */
 	.offer-showcase-stage { display: none; }
 	.offer-showcase-stage.is-active { display: grid; }
