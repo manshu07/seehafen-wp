@@ -192,20 +192,8 @@ $firma_id = sh2_page_id( 'firma' );
 if ( $firma_id ) {
 	$data = array(
 		sh2_section( array( sh2_shortcode_widget( '[seehafen_company_about]' ) ), 'company-about-section' ),
-		sh2_section(
-			array(
-				sh2_html_widget( '<div class="content"><div class="company-section-heading"><span class="kicker">Unser Team</span><h2>Persönlich für Sie da.</h2><p>Drei Persönlichkeiten, ein gemeinsamer Anspruch: Ihre Immobilie zuverlässig und mit Weitblick zu begleiten.</p></div></div>' ),
-				sh2_shortcode_widget( '[seehafen_team]' ),
-			),
-			'company-team-section'
-		),
-		sh2_section(
-			array(
-				sh2_html_widget( '<div class="content"><div class="company-section-heading"><span class="kicker">Werte &amp; Arbeitsweise</span><h2>Klar in der Haltung.<br />Strukturiert im Handeln.</h2><p>Unsere Zusammenarbeit basiert auf Vertrauen, transparenter Kommunikation und einem verlässlichen Vorgehen.</p></div></div>' ),
-				sh2_shortcode_widget( '[seehafen_values]' ),
-			),
-			'company-values-section'
-		),
+		sh2_section( array( sh2_shortcode_widget( '[seehafen_team]' ) ), 'company-team-section' ),
+		sh2_section( array( sh2_shortcode_widget( '[seehafen_values]' ) ), 'company-values-section' ),
 		sh2_section( array( sh2_shortcode_widget( '[seehafen_cta]' ) ), 'contact-strip-section' ),
 	);
 	sh2_save( $firma_id, $data );

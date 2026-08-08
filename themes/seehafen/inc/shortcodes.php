@@ -327,7 +327,14 @@ function seehafen_team_shortcode() {
 		$role     = get_field( 'seehafen_role', $m->ID );
 		$items   .= '<article><span class="team-avatar">' . esc_html( $initials ) . '</span><h2>' . esc_html( get_the_title( $m->ID ) ) . '</h2><strong>' . esc_html( $role ) . '</strong><p>' . esc_html( wp_strip_all_tags( $m->post_content ) ) . '</p></article>';
 	}
-	return '<div class="team-grid">' . $items . '</div>';
+	return '<section class="company-team" id="team"><div class="content">
+		<div class="company-section-heading">
+			<span class="kicker">Unser Team</span>
+			<h2>Persönlich für Sie da.</h2>
+			<p>Drei Persönlichkeiten, ein gemeinsamer Anspruch: Ihre Immobilie zuverlässig und mit Weitblick zu begleiten.</p>
+		</div>
+		<div class="team-grid">' . $items . '</div>
+	</div></section>';
 }
 add_shortcode( 'seehafen_team', 'seehafen_team_shortcode' );
 
@@ -347,10 +354,17 @@ function seehafen_values_shortcode() {
 	foreach ( $process as $p ) {
 		$proc_list .= '<article><span>' . esc_html( $p[0] ) . '</span><div><h4>' . esc_html( $p[1] ) . '</h4><p>' . esc_html( $p[2] ) . '</p></div></article>';
 	}
-	return '<div class="company-values-layout">
-		<div class="company-values-column"><h3>Unsere Werte</h3><div class="company-detail-list">' . $val_list . '</div></div>
-		<div class="company-values-column"><h3>So arbeiten wir</h3><div class="company-detail-list">' . $proc_list . '</div></div>
-	</div>';
+	return '<section class="company-values" id="werte"><div class="content">
+		<div class="company-section-heading">
+			<span class="kicker">Werte &amp; Arbeitsweise</span>
+			<h2>Klar in der Haltung.<br />Strukturiert im Handeln.</h2>
+			<p>Unsere Zusammenarbeit basiert auf Vertrauen, transparenter Kommunikation und einem verlässlichen Vorgehen.</p>
+		</div>
+		<div class="company-values-layout">
+			<div class="company-values-column"><h3>Unsere Werte</h3><div class="company-detail-list">' . $val_list . '</div></div>
+			<div class="company-values-column"><h3>So arbeiten wir</h3><div class="company-detail-list">' . $proc_list . '</div></div>
+		</div>
+	</div></section>';
 }
 add_shortcode( 'seehafen_values', 'seehafen_values_shortcode' );
 

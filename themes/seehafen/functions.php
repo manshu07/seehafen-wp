@@ -121,6 +121,11 @@ function seehafen_elementor_css() {
 	.offer-showcase-stage { display: none; }
 	.offer-showcase-stage.is-active { display: grid; }
 
+	/* Mobile nav toggle: Menu <-> X icon swap like the SPA. */
+	.nav-toggle .lucide-x { display: none; }
+	body.menu-open .nav-toggle .lucide-menu { display: none; }
+	body.menu-open .nav-toggle .lucide-x { display: block; }
+
 	/* CF7 form — SPA form styling. CF7 emits one giant <p>; flatten it so labels become grid cells. */
 	.contact-form .form-fields p { display: contents; }
 	.contact-form .form-fields br { display: none; }
