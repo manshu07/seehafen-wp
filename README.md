@@ -7,7 +7,16 @@ WordPress build of the Seehafen & Partner Immobilien AG site — **plugin-first 
 
 ## Stack
 - **WordPress** + child theme `seehafen` (parent: twentytwentyfive)
-- **Plugins:** Elementor (page composition), Custom Post Type UI (CPTs), ACF (fields), Rank Math (SEO), Contact Form 7 (contact)
+- **Page/content:** Elementor (page composition), Custom Post Type UI (CPTs), ACF (fields), Rank Math (SEO), Contact Form 7 (contact)
+- **Business care (360°):**
+  - **FluentSMTP** — reliable form mail delivery (needs real SMTP credentials in production)
+  - **Flamingo** — stores every CF7 form submission in the DB (never lose an inquiry)
+  - **UpdraftPlus** — scheduled offsite backups (weekly, keep 4; add Google Drive/Dropbox in production)
+  - **All-in-One WP Security** — firewall + hardening (XML-RPC off)
+  - **Complianz** — Swiss/GDPR cookie consent banner (country=CH)
+  - **WP Super Cache** — page caching (enabled)
+  - **Redirection** — free URL management
+  - **Limit Login Attempts** — brute-force protection (4 attempts / 20 min lockout)
 - Theme carries the SPA design CSS verbatim (`assets/css/main.css`) + ported SPA JS (`assets/js/main.js` — menu, dropdowns, scroll-reveal, offer carousel, load-more)
 - Shortcodes in `inc/shortcodes.php` render each section with the SPA's exact markup, driven by WP data (CPTs/ACF/options)
 
@@ -107,11 +116,34 @@ podman exec seehafen-wp bash -lc '
 
 ```bash
 podman exec seehafen-wp bash -lc '
-  wp plugin install elementor custom-post-type-ui advanced-custom-fields seo-by-rank-math contact-form-7 --activate --allow-root
+  wp plugin install elementor custom-post-type-ui advanced-custom-fields seo-by-rank-math contact-form-7 --activate --allow-root &&
+  wp plugin install fluent-smtp flamingo updraftplus all-in-one-wp-security-and-firewall complianz-gdpr wp-super-cache redirection limit-login-attempts-reloaded --activate --allow-root
 '
 ```
 
-**Expected:** `Success: Installed 5 of 5 plugins.`
+**Expected:** `Success: Installed 13 of 13 plugins.`
+
+**Post-install config (one time):**
+```bash
+podman exec seehafen-wp bash -lc '
+  # WP Super Cache on
+  sed -i "s/\\\$cache_enabled = false;/\\\$cache_enabled = true;/" /var/www/html/wp-content/wp-cache-config.php
+  # UpdraftPlus: weekly, keep 4
+  wp option update updraft_interval weekly --allow-root &&
+  wp option update updraft_interval_database weekly --allow-root &&
+  wp option update updraft_retain 4 --allow-root
+  # Complianz: Switzerland
+  wp option update complianz_options_settings "{\"country\":\"CH\",\"language\":\"de\"}" --format=json --allow-root
+  # Limit Login: 4 attempts / 20 min
+  wp option update limit_login_retries 4 --allow-root &&
+  wp option update limit_login_lockout_duration 1200 --allow-root
+  # All-in-One: firewall + XML-RPC off
+  wp option update aiowps_enable_firewall 1 --allow-root &&
+  wp option update aiowps_disable_xmlrpc 1 --allow-root
+'
+```
+
+> **Production to-dos:** add real SMTP credentials in FluentSMTP (FluentSMTP → Settings), connect Google Drive/Dropbox in UpdraftPlus, and run the Complianz wizard once on the live domain.
 
 ---
 
