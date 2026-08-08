@@ -1,5 +1,10 @@
 # Seehafen-2 → WordPress Migration Plan
 
+> **⚠️ HISTORICAL (v1, 2026-08-05):** This document describes the original custom-code build plan.
+> That build was replaced by the **v2 plugin-first build** (Elementor + CPT UI + ACF + CF7) — see
+> [`ARCHITECTURE.md`](ARCHITECTURE.md) for the current architecture. The site inventory in section 1
+> is still accurate (it's the reference SPA's content model).
+
 **Date:** 2026-08-05
 **Author:** Night-Mule-9000 🌙🐴💤
 **Source repo:** github.com/cng13m/seehafen-2 (React/Vite SPA)

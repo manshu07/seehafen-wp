@@ -4,6 +4,7 @@ WordPress build of the Seehafen & Partner Immobilien AG site — **plugin-first 
 
 - Reference SPA (what the site should look like): https://seehafen-2.shefkiu-genc.workers.dev
 - Source SPA code (needed for images): https://github.com/cng13m/seehafen-2
+- **How the site works + maintenance guide: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)** ← read this before editing
 
 ## Stack
 - **WordPress** + child theme `seehafen` (parent: twentytwentyfive)
