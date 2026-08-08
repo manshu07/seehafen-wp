@@ -1,57 +1,41 @@
 <?php
 /**
- * Site footer — brand, offices, direct contact, legal links.
+ * Seehafen footer — matches the SPA footer.
  *
  * @package Seehafen
  */
-
-defined( 'ABSPATH' ) || exit;
-
-$phone_land   = get_theme_mod( 'seehafen_phone_land', '+41 44 451 43 02' );
-$phone_mobile = get_theme_mod( 'seehafen_phone_mobile', '+41 79 785 78 80' );
-$email        = get_theme_mod( 'seehafen_email', 'info@seehafen-immobilien.ch' );
-$address_main = get_theme_mod( 'seehafen_address_main', "Bahnhofstrasse 4\n6430 Schwyz" );
-$address_branch = get_theme_mod( 'seehafen_address_branch', "Cheiblerrain 13\n5610 Wohlen" );
-$footer_text  = get_theme_mod( 'seehafen_footer_text', 'Persönliche Immobiliendienstleistungen mit Weitblick – in Schwyz, Wohlen und der ganzen Schweiz.' );
 ?>
 </main>
-
 <footer class="footer">
 	<div class="content footer-main">
 		<div class="footer-brand">
-			<?php seehafen_logo(); ?>
-			<p><?php echo esc_html( $footer_text ); ?></p>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/logo.png' ); ?>" alt="Seehafen & Partner Immobilien AG" />
+			</a>
+			<p><?php esc_html_e( 'Persönliche Immobiliendienstleistungen mit Weitblick – in Schwyz, Wohlen und der ganzen Schweiz.', 'seehafen' ); ?></p>
 		</div>
 		<div>
 			<strong><?php esc_html_e( 'Hauptsitz Schwyz', 'seehafen' ); ?></strong>
-			<p><?php echo nl2br( esc_html( $address_main ) ); ?></p>
+			<p>Bahnhofstrasse 4<br />6430 Schwyz</p>
 			<strong><?php esc_html_e( 'Filiale Wohlen', 'seehafen' ); ?></strong>
-			<p><?php echo nl2br( esc_html( $address_branch ) ); ?></p>
+			<p>Cheiblerrain 13<br />5610 Wohlen</p>
 		</div>
 		<div class="footer-contact">
 			<strong><?php esc_html_e( 'Direkter Kontakt', 'seehafen' ); ?></strong>
-			<a href="<?php echo esc_url( seehafen_phone_land_tel() ); ?>"><?php seehafen_icon( 'phone' ); ?> <?php echo esc_html( $phone_land ); ?></a>
-			<a href="<?php echo esc_url( seehafen_phone_mobile_tel() ); ?>"><?php seehafen_icon( 'phone' ); ?> <?php echo esc_html( $phone_mobile ); ?></a>
-			<a href="<?php echo esc_url( 'mailto:' . $email ); ?>"><?php seehafen_icon( 'mail' ); ?> <?php echo esc_html( $email ); ?></a>
+			<a href="tel:+41444514302"><span class="footer-icon phone"></span> +41 44 451 43 02</a>
+			<a href="tel:+41797857880"><span class="footer-icon phone"></span> +41 79 785 78 80</a>
+			<a href="mailto:info@seehafen-immobilien.ch"><span class="footer-icon mail"></span> info@seehafen-immobilien.ch</a>
 		</div>
 	</div>
 	<div class="content footer-bottom">
-		<span>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php esc_html_e( 'Seehafen & Partner Immobilien AG', 'seehafen' ); ?></span>
+		<span>© 2026 Seehafen &amp; Partner Immobilien AG</span>
 		<span>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'footer',
-				'container'      => false,
-				'menu_class'     => 'footer-menu',
-				'items_wrap'     => '%3$s',
-				'depth'          => 1,
-				'fallback_cb'    => false,
-			) );
-			?>
+			<a href="<?php echo esc_url( home_url( '/impressum' ) ); ?>"><?php esc_html_e( 'Impressum', 'seehafen' ); ?></a>
+			<a href="<?php echo esc_url( home_url( '/datenschutz' ) ); ?>"><?php esc_html_e( 'Datenschutz', 'seehafen' ); ?></a>
+			<a href="<?php echo esc_url( home_url( '/agb' ) ); ?>"><?php esc_html_e( 'AGB', 'seehafen' ); ?></a>
 		</span>
 	</div>
 </footer>
-
 <?php wp_footer(); ?>
 </body>
 </html>

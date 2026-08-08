@@ -1,85 +1,41 @@
-# Seehafen & Partner Immobilien AG — WordPress
+# Seehafen & Partner Immobilien AG — WordPress (Plugin Build v2)
 
-WordPress migration of the Seehafen & Partner Immobilien AG website (seehafen-immobilien.ch), ported 1:1 from the original React SPA ([cng13m/seehafen-2](https://github.com/cng13m/seehafen-2)).
-
-**Design and animations unchanged. All content is 100% dynamic** — editable from the WordPress admin.
+WordPress build of the Seehafen & Partner Immobilien AG site — **plugin-first approach** (v2, replaces the v1 custom-code build).
 
 ## Stack
+- **WordPress** + child theme `seehafen` (parent: twentytwentyfive)
+- **Plugins:** Elementor (page composition), Custom Post Type UI (CPTs), ACF (fields), Rank Math (SEO), Contact Form 7 (contact)
+- Theme carries the original SPA design CSS verbatim (`assets/css/main.css`)
 
-| Piece | Tech |
-|---|---|
-| Theme | `themes/seehafen` — **child theme** of the WordPress default (`twentytwentyfive` parent). 1:1 site port, WP Coding Standards compliant |
-| Content types | `plugins/seehafen-cpt` — CPTs: service (8), reference (28), offer (3), team_member (3) + taxonomies |
-| SEO | Rank Math plugin + manual per-page meta (title/description/canonical/OG) |
-| Forms | **Contact Form 7** (German messages, honeypot, consent acceptance, design-matched CSS) → mail |
-| Menus | WP nav menus (primary dropdowns + footer) |
-| Site settings | Appearance → Customize (contact info, addresses, hours, Homegate URL, hero, CTA, process, values) |
-| Images | WP media library (all 44 assets imported) |
-| Standards | WordPress Coding Standards (PHP/JS/CSS/HTML), WCAG 2.2 AA, translation-ready (de_CH) |
-
-## Pages / routes
-
-`/` (Start) · `/firma/` · `/dienstleistungen/` · `/dienstleistungen/{service}/` (×4) · `/angebote/` · `/referenzen/` · `/kontakt/` · `/impressum/` · `/datenschutz/` · `/agb/` · 404 · `/immobilien` → 301 Homegate
-
-## Local setup (podman, rootless)
-
+## Local dev (podman, rootless)
 ```bash
-mkdir -p wp-content mysql-data && chmod 777 wp-content mysql-data
-
 podman network create wpnet
-
-podman run -d --name seehafen-db --network wpnet \
-  -e MYSQL_ROOT_PASSWORD='seehafen_root_2026' \
-  -e MYSQL_DATABASE=seehafen -e MYSQL_USER=wp -e MYSQL_PASSWORD='seehafen_wp_2026' \
-  -p 3307:3306 -v ~/wordpress-dev/mysql-data:/var/lib/mysql:Z \
-  docker.io/library/mysql:8.4
-
-podman run -d --name seehafen-wp --network wpnet \
-  -e WORDPRESS_DB_HOST=seehafen-db:3306 -e WORDPRESS_DB_USER=wp \
-  -e WORDPRESS_DB_PASSWORD='seehafen_wp_2026' -e WORDPRESS_DB_NAME=seehafen \
-  -p 8080:80 -v ~/wordpress-dev/wp-content:/var/www/html/wp-content:Z \
-  docker.io/library/wordpress:php8.3-apache
+podman run -d --name seehafen-db --network wpnet -p 127.0.0.1:3307:3306 \
+  -e MYSQL_ROOT_PASSWORD=rootpw2026 -e MYSQL_DATABASE=seehafen -e MYSQL_USER=wp -e MYSQL_PASSWORD=wppass2026 \
+  -v ~/wordpress-dev/mysql-data:/var/lib/mysql:Z docker.io/library/mysql:8.4
+podman run -d --name seehafen-wp --network wpnet -p 127.0.0.1:8080:80 \
+  -e WORDPRESS_DB_HOST=seehafen-db:3306 -e WORDPRESS_DB_USER=wp -e WORDPRESS_DB_PASSWORD=wppass2026 \
+  -e WORDPRESS_DB_NAME=seehafen \
+  -v ~/wordpress-dev/wp-content:/var/www/html/wp-content:Z docker.io/library/wordpress:php8.3-apache
 ```
+WP admin: `http://localhost:8080/wp-admin` (admin / Admin2026!)
 
-Then install WP, activate `seehafen-cpt` + `seehafen` theme, run:
+## One-time setup (order matters)
+1. `wp core install` (as above) + activate theme + install/activate plugins:
+   `wp plugin install elementor custom-post-type-ui advanced-custom-fields seo-by-rank-math contact-form-7 --activate`
+2. `setup/seed-cptui.php` — creates CPTs (service, reference, offer, team_member) via CPT UI option
+3. `setup/seed-acf.php` — creates ACF field groups
+4. Stage assets: copy SPA `public/assets/` → `wp-content/assets/` (JSON paths are `/assets/...`)
+5. `setup/seed-data.json` → `/tmp/seed-data.json` in container
+6. `setup/seed-content.php` — imports pages, services, references, offers, team, menu, CF7 form
+7. `setup/seed-elementor.php` — builds Elementor page data for all pages
+8. `wp elementor flush-css && wp cache flush` — clear Elementor caches after seeding
+9. `setup/fix-menu.php` — menu hierarchy (dropdowns); `setup/fix-cf7.php` — German CF7 form
 
-```bash
-wp eval-file /var/www/html/wp-content/migrate-seehafen.php
-wp rewrite flush
-```
+## Content
+- 9 pages, 4 services (detail pages at `/dienstleistungen/{slug}`), 28 references, 3 offers, 3 team members
+- All copy 1:1 from source SPA (`cng13m/seehafen-2`)
 
-> Note: the setup scripts write theme mods + menu locations, so run them **after** the `seehafen` theme is active.
-
-## Local admin
-
-- URL: http://localhost:8080
-- Admin: `admin` / `SeehafenAdmin2026!` (local dev only)
-
-## Structure
-
-```
-themes/seehafen/        child theme of the WP default (twentytwentyfive) — all site templates/code
-plugins/seehafen-cpt/   CPT + taxonomy + meta box plugin
-setup/                  one-time content seed scripts (1:1 SPA data)
-docs/                   planning doc
-```
-
-## Child theme concept
-
-- **Parent = the WordPress default theme `twentytwentyfive`** (ships with every WP install, receives core updates).
-- `seehafen` is the **child theme** — all site code lives here (`Template: twentytwentyfive` in style.css).
-- Child templates are checked first; anything the child doesn't provide falls back to the parent.
-- Child `functions.php` loads **in addition to** the parent's — parent updates never clobber the site.
-- Theme asset paths use `get_stylesheet_directory_uri()` (child-relative).
-
-## WP Coding Standards
-
-All PHP/JS/CSS/HTML follows the [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/). Verify with PHP_CodeSniffer:
-
-```bash
-phpcs --standard=WordPress themes/seehafen plugins/seehafen-cpt
-```
-
-## Credits
-
-Built by Night-Mule-9000 🌙🐴💤 for Seehafen & Partner Immobilien AG · German (de_CH) · © 2026
+## Verify
+- All routes: `/`, `/firma/`, `/dienstleistungen/`, `/dienstleistungen/immobilienverkauf/`, `/angebote/`, `/referenzen/`, `/kontakt/`, `/impressum/`, `/datenschutz/`, `/agb/`
+- Contact form: German messages, Thema select, consent checkbox

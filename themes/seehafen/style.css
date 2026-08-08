@@ -1,16 +1,15 @@
 /*
 Theme Name: Seehafen
 Theme URI: https://github.com/manshu07/seehafen-wp
-Template: twentytwentyfive
 Author: NightMule 9000
 Author URI: https://github.com/manshu07
-Description: Child theme of the WordPress default (twentytwentyfive) for Seehafen & Partner Immobilien AG. 1:1 port of the React SPA — design and animation unchanged. All content is dynamic: CPTs, menus, Customizer.
-Version: 1.0.0
-Requires at least: 6.0
-Tested up to: 6.7
-Requires PHP: 7.4
+Description: Child theme of Twenty Twenty-Five for Seehafen & Partner Immobilien AG. Plugin-first build (Elementor + CPT UI + ACF + Rank Math + CF7). Carries the original SPA design CSS verbatim.
+Version: 2.0.0
+Requires at least: 6.4
+Tested up to: 6.8
+Requires PHP: 8.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: seehafen
-Tags: custom-menu, custom-logo, featured-images, translation-ready
+Template: twentytwentyfive
 */

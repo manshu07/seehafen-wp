@@ -1,0 +1,680 @@
+{
+  "primaryServices": [
+    {
+      "slug": "immobilienverkauf",
+      "title": "Immobilienverkauf",
+      "hero": "/assets/property-hero.jpg",
+      "detailImage": "/assets/team-1.jpg",
+      "lead": "Wir positionieren Ihre Immobilie klar und begleiten den Verkauf persönlich bis zum Abschluss.",
+      "heading": "Ein Verkauf mit Plan und persönlicher Begleitung.",
+      "copy": "Von der ersten Einschätzung bis zur Schlüsselübergabe erhalten Sie eine klare Strategie, eine hochwertige Präsentation und einen festen Ansprechpartner.",
+      "points": [
+        "Marktgerechte Positionierung",
+        "Professionelle Vermarktung",
+        "Besichtigungen und Verhandlungen",
+        "Begleitung bis zum Vertragsabschluss"
+      ]
+    },
+    {
+      "slug": "immobilienbewertung",
+      "title": "Immobilienbewertung",
+      "hero": "/assets/property-1.jpg",
+      "detailImage": "/assets/team-3.jpg",
+      "lead": "Eine fundierte Bewertung schafft Sicherheit für Verkauf, Kauf und langfristige Entscheidungen.",
+      "heading": "Klarheit über den Wert Ihrer Immobilie.",
+      "copy": "Wir verbinden Marktkenntnis, Lage, Zustand und Potenzial zu einer nachvollziehbaren Einschätzung – verständlich erklärt und auf Ihre Situation abgestimmt.",
+      "points": [
+        "Analyse von Lage und Objekt",
+        "Vergleich mit dem aktuellen Markt",
+        "Einschätzung von Potenzialen",
+        "Persönliche Besprechung der Ergebnisse"
+      ]
+    },
+    {
+      "slug": "stockwerkeigentum",
+      "title": "Stockwerkeigentum",
+      "hero": "/assets/about.jpg",
+      "detailImage": "/assets/team-2.jpg",
+      "lead": "Wir verwalten Stockwerkeigentum strukturiert, transparent und mit Blick auf die Gemeinschaft.",
+      "heading": "Verwaltung, die Eigentümer entlastet.",
+      "copy": "Wir koordinieren Administration, Unterhalt und Versammlungen zuverlässig und sorgen für klare Kommunikation zwischen allen Beteiligten.",
+      "points": [
+        "Eigentümerversammlungen",
+        "Budget und Abrechnungen",
+        "Unterhalt und technische Koordination",
+        "Transparente Eigentümerkommunikation"
+      ]
+    },
+    {
+      "slug": "mietliegenschaften",
+      "title": "Mietliegenschaften",
+      "hero": "/assets/property-2.jpg",
+      "detailImage": "/assets/property-3.jpg",
+      "lead": "Eine verlässliche Bewirtschaftung schützt den Wert Ihrer Liegenschaft und entlastet Sie im Alltag.",
+      "heading": "Persönlich betreut. Nachhaltig bewirtschaftet.",
+      "copy": "Von der Vermietung bis zur Abrechnung übernehmen wir die laufende Betreuung Ihrer Mietliegenschaft effizient und nachvollziehbar.",
+      "points": [
+        "Mieterbetreuung und Vermietung",
+        "Mietzinsinkasso und Mahnwesen",
+        "Nebenkostenabrechnungen",
+        "Unterhalt und Objektkontrollen"
+      ]
+    }
+  ],
+  "additionalServices": [
+    {
+      "id": "erstvermietung",
+      "title": "Erstvermietung & Neubau",
+      "image": "/assets/property-1.jpg",
+      "text": "Von der Marktanalyse bis zur Übergabe: klare Positionierung und koordinierte Erstvermietung.",
+      "points": [
+        "Markt- und Standortanalysen",
+        "Mietpreisgestaltung",
+        "Branding und Marketing",
+        "Übergaben und Mieterkoordination"
+      ]
+    },
+    {
+      "id": "baumanagement",
+      "title": "Baumanagement & Unterhalt",
+      "image": "/assets/property-2.jpg",
+      "text": "Strukturierte Planung und Kontrolle für Sanierungen, Unterhalt und Umbauten.",
+      "points": [
+        "Sanierungs- und Unterhaltsplanung",
+        "Offertvergleich und Vergabe",
+        "Termin- und Kostenkontrolle",
+        "Abnahmen und Qualitätskontrollen"
+      ]
+    },
+    {
+      "id": "administration",
+      "title": "Administration & Recht",
+      "image": "/assets/team-1.jpg",
+      "text": "Sorgfältige Unterstützung bei Verträgen, Verfahren und der laufenden Dokumentation.",
+      "points": [
+        "Mietverträge und Anpassungen",
+        "Beendigung von Mietverhältnissen",
+        "Begleitung bei Schlichtungsverfahren",
+        "Dokumentenmanagement"
+      ]
+    },
+    {
+      "id": "investments",
+      "title": "Immobilieninvestments",
+      "image": "/assets/property-3.jpg",
+      "text": "Persönliche Begleitung bei Investitionsentscheiden sowie An- und Verkaufsprozessen.",
+      "points": [
+        "Investitionsberatung",
+        "Off-Market-Deals",
+        "Portfolio- und Potenzialanalysen",
+        "Begleitung bei An- und Verkäufen"
+      ]
+    }
+  ],
+  "homeServices": [
+    {
+      "title": "Immobilienverkauf",
+      "image": "/assets/team-1.jpg",
+      "text": "Persönlich begleitet – von der fundierten Bewertung bis zum erfolgreichen Abschluss.",
+      "href": "/dienstleistungen/immobilienverkauf"
+    },
+    {
+      "title": "Immobilienbewertung",
+      "image": "/assets/team-3.jpg",
+      "text": "Nachvollziehbare Entscheidungsgrundlagen für Eigentümer, Käufer und Investoren.",
+      "href": "/dienstleistungen/immobilienbewertung"
+    },
+    {
+      "title": "Stockwerkeigentum",
+      "image": "/assets/about.jpg",
+      "text": "Strukturierte Verwaltung, transparente Kommunikation und persönliche Betreuung.",
+      "href": "/dienstleistungen/stockwerkeigentum"
+    },
+    {
+      "title": "Mietliegenschaften",
+      "image": "/assets/team-2.jpg",
+      "text": "Zuverlässige Bewirtschaftung mit klaren Prozessen und Blick auf den langfristigen Werterhalt.",
+      "href": "/dienstleistungen/mietliegenschaften"
+    }
+  ],
+  "offerShowcaseItems": [
+    {
+      "slug": "schaffhausen-15-zimmer",
+      "label": "Miete",
+      "title": "Moderne 1.5-Zimmer-Wohnung in Schaffhausen",
+      "image": "/assets/offers/schaffhausen-15-zimmer.avif",
+      "location": "Schaffhausen",
+      "price": "1'450.–",
+      "rooms": "1.5 Zimmer",
+      "area": "32 m²"
+    },
+    {
+      "slug": "huttwil-35-zimmer",
+      "label": "Miete",
+      "title": "Moderne 3.5-Zimmer-Wohnung im Neubau – Huttwil",
+      "image": "/assets/offers/huttwil-35-zimmer.avif",
+      "location": "Huttwil",
+      "price": "1'570.–",
+      "rooms": "3.5 Zimmer",
+      "area": "72 m²"
+    },
+    {
+      "slug": "wohlen-lagerraum",
+      "label": "Miete",
+      "title": "Lagerraum zur Miete an der Oberen Haldenstrasse in Wohlen",
+      "image": "/assets/offers/wohlen-lagerraum.avif",
+      "location": "Wohlen",
+      "price": "250.–",
+      "rooms": "1 Zimmer"
+    }
+  ],
+  "soldReferences": [
+    [
+      "Mehrfamilienhaus",
+      "Hägglingen AG",
+      "Verkauft",
+      "6 Wohnungen",
+      "/assets/references/sale-haegglingen-6.jpg"
+    ],
+    [
+      "Wohnportfolio",
+      "Olten SO",
+      "Verkauft",
+      "24 Wohnungen",
+      "/assets/references/sale-olten-24.jpg"
+    ],
+    [
+      "3.5-Zimmer-Wohnung",
+      "Zürich ZH",
+      "Verkauft",
+      "3.5 Zimmer",
+      "/assets/references/sale-zuerich-35.jpg"
+    ],
+    [
+      "3.5-Zimmer-Wohnung",
+      "Bubikon ZH",
+      "Verkauft",
+      "3.5 Zimmer",
+      "/assets/references/sale-bubikon-35.jpg"
+    ],
+    [
+      "2.5-Zimmer-Wohnung",
+      "Hinwil ZH",
+      "Verkauft",
+      "2.5 Zimmer",
+      "/assets/references/sale-hinwil-25.jpg"
+    ],
+    [
+      "4.5-Zimmer-Wohnung",
+      "Dällikon ZH",
+      "Verkauft",
+      "4.5 Zimmer",
+      "/assets/references/sale-daellikon-45.png"
+    ]
+  ],
+  "rentalReferences": [
+    [
+      "4.5-Zimmer-Wohnung",
+      "Würenlos AG",
+      "Vermietet",
+      "4.5 Zimmer",
+      "/assets/references/rent-wuerenlos-45.jpg"
+    ],
+    [
+      "1.5-Zimmer-Wohnung",
+      "Zürich ZH",
+      "Vermietet",
+      "1.5 Zimmer",
+      "/assets/references/rent-zuerich-15.jpg"
+    ],
+    [
+      "Zwei 4.5-Zimmer-Wohnungen",
+      "Aarburg AG",
+      "Vermietet",
+      "2 Wohnungen",
+      "/assets/references/rent-aarburg-45.png"
+    ],
+    [
+      "4.5-Zimmer-Wohnung",
+      "Reichenburg SZ",
+      "Vermietet",
+      "4.5 Zimmer",
+      "/assets/references/rent-reichenburg-45.jpg"
+    ],
+    [
+      "3.5-Zimmer-Wohnung",
+      "Rudolfstetten AG",
+      "Vermietet",
+      "3.5 Zimmer",
+      "/assets/references/rent-rudolfstetten-35.png"
+    ],
+    [
+      "4.5- & 3.5-Zimmer-Wohnungen",
+      "Altstetten ZH",
+      "Vermietet",
+      "2 Wohnungen",
+      "/assets/references/rent-altstetten.jpg"
+    ],
+    [
+      "Attika-Maisonette-Terrassenhaus",
+      "Rieden SG",
+      "Vermietet",
+      "5.5 Zimmer",
+      "/assets/references/rent-rieden-attika.jpg"
+    ],
+    [
+      "5.5-Zimmer-Wohnung",
+      "Zürich ZH",
+      "Vermietet",
+      "5.5 Zimmer",
+      "/assets/references/rent-zuerich-55.jpg"
+    ],
+    [
+      "2.5- & 3.5-Zimmer-Wohnungen",
+      "Wohlen AG",
+      "Vermietet",
+      "2 Wohnungen",
+      "/assets/references/rent-wohlen-25-35.jpg"
+    ],
+    [
+      "3.5-Zimmer-Wohnung",
+      "Zürich ZH",
+      "Vermietet",
+      "3.5 Zimmer",
+      "/assets/references/rent-zuerich-35.jpg"
+    ],
+    [
+      "4.5-Zimmer-Wohnung",
+      "Wohlen AG",
+      "Vermietet",
+      "4.5 Zimmer",
+      "/assets/references/rent-wohlen-45.jpg"
+    ],
+    [
+      "4-Zimmer-Reihenhaus",
+      "Wohlen AG",
+      "Vermietet",
+      "4 Zimmer",
+      "/assets/references/rent-wohlen-reihenhaus.jpg"
+    ],
+    [
+      "Gewerbefläche",
+      "Wohlen AG",
+      "Vermietet",
+      "Gewerbe",
+      "/assets/references/rent-wohlen-gewerbe.jpg"
+    ],
+    [
+      "1.5-Zimmer-Wohnung",
+      "Opfikon ZH",
+      "Vermietet",
+      "1.5 Zimmer",
+      "/assets/references/rent-opfikon-15.jpg"
+    ]
+  ],
+  "managementReferences": [
+    [
+      "Wohnliegenschaft",
+      "Bubendorf BL",
+      "Verwaltungsmandat",
+      "6 Wohnungen",
+      "/assets/references/manage-bubendorf-6.jpg"
+    ],
+    [
+      "Wohn- und Geschäftsliegenschaft",
+      "",
+      "Verwaltungsmandat",
+      "2 Ladenflächen · 6 Wohnungen",
+      "/assets/references/manage-shops-apartments.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Staad SG",
+      "Verwaltungsmandat",
+      "8 Wohnungen",
+      "/assets/references/manage-staad-8.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Hägglingen AG",
+      "Verwaltungsmandat",
+      "6 Wohnungen",
+      "/assets/references/manage-haegglingen-6.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Rheineck SG",
+      "Verwaltungsmandat",
+      "12 Wohnungen",
+      "/assets/references/manage-rheineck-12.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Glarus GL",
+      "Verwaltungsmandat",
+      "8 Wohnungen",
+      "/assets/references/manage-glarus-8.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Hägglingen AG",
+      "Verwaltungsmandat",
+      "8 Wohnungen",
+      "/assets/references/manage-haegglingen-8.png"
+    ],
+    [
+      "Wohn- und Gewerbeliegenschaft",
+      "Schaffhausen SH",
+      "Verwaltungsmandat",
+      "16 Wohnungen · 2 Gewerbeflächen",
+      "/assets/references/manage-schaffhausen.png"
+    ]
+  ],
+  "process": [
+    [
+      "01",
+      "Erstgespräch",
+      "Wir besprechen Ihre Ziele, Anforderungen und Erwartungen in einem persönlichen Gespräch."
+    ],
+    [
+      "02",
+      "Analyse",
+      "Wir analysieren Ihre Immobilie oder Ihren Bedarf und entwickeln eine massgeschneiderte Strategie."
+    ],
+    [
+      "03",
+      "Umsetzung",
+      "Wir setzen die vereinbarten Massnahmen professionell, transparent und zuverlässig um."
+    ],
+    [
+      "04",
+      "Partnerschaft",
+      "Wir begleiten Sie langfristig und stehen Ihnen als vertrauensvoller Partner zur Seite."
+    ]
+  ],
+  "team": [
+    [
+      "EL",
+      "Eduard Laska",
+      "Geschäftsführer",
+      "Über 10 Jahre Erfahrung in der Immobilienbranche · Eidg. Fachausweis"
+    ],
+    [
+      "DL",
+      "Dorentina Laska",
+      "Sachbearbeiterin Immobilien",
+      "Persönliche und zuverlässige Betreuung unserer Kundschaft"
+    ],
+    [
+      "JM",
+      "Jozefina Markaj",
+      "Vermarktung",
+      "Dipl. Innenarchitektin · Immobilien wirkungsvoll positioniert"
+    ]
+  ],
+  "meta": {
+    "/": [
+      "Seehafen Immobilien | Verkauf, Beratung & Bewirtschaftung",
+      "Seehafen & Partner Immobilien AG – persönliche Immobilienberatung, Verkauf und Bewirtschaftung in der Schweiz."
+    ],
+    "/firma": [
+      "Firma | Seehafen Immobilien",
+      "Lernen Sie Seehafen & Partner, unsere Haltung und unsere Arbeitsweise kennen."
+    ],
+    "/uber-uns": [
+      "Über uns | Seehafen Immobilien",
+      "Lernen Sie Seehafen & Partner, unser Team, unsere Werte und unsere Arbeitsweise kennen."
+    ],
+    "/team": [
+      "Unser Team | Seehafen Immobilien",
+      "Lernen Sie die persönlichen Ansprechpartner von Seehafen & Partner kennen."
+    ],
+    "/werte": [
+      "Werte & Arbeitsweise | Seehafen Immobilien",
+      "Erfahren Sie mehr über die Werte und Arbeitsweise von Seehafen & Partner."
+    ],
+    "/dienstleistungen": [
+      "Immobiliendienstleistungen | Seehafen Immobilien",
+      "Bewirtschaftung, Immobilienverkauf, Beratung, Erstvermietung, Baumanagement und Investments."
+    ],
+    "/dienstleistungen/immobilienverkauf": [
+      "Immobilienverkauf | Seehafen Immobilien",
+      "Persönliche Begleitung beim professionellen Verkauf Ihrer Immobilie."
+    ],
+    "/dienstleistungen/immobilienbewertung": [
+      "Immobilienbewertung | Seehafen Immobilien",
+      "Fundierte und nachvollziehbare Bewertung Ihrer Immobilie."
+    ],
+    "/dienstleistungen/stockwerkeigentum": [
+      "Stockwerkeigentum | Seehafen Immobilien",
+      "Strukturierte und transparente Verwaltung von Stockwerkeigentum."
+    ],
+    "/dienstleistungen/mietliegenschaften": [
+      "Mietliegenschaften | Seehafen Immobilien",
+      "Persönliche und nachhaltige Bewirtschaftung von Mietliegenschaften."
+    ],
+    "/angebote": [
+      "Angebote | Seehafen Immobilien",
+      "Aktuelle Immobilienangebote und erfolgreich begleitete Referenzprojekte."
+    ],
+    "/referenzen": [
+      "Referenzen | Seehafen Immobilien",
+      "Ausgewählte erfolgreich verkaufte, vermietete und verwaltete Immobilienprojekte."
+    ],
+    "/kontakt": [
+      "Kontakt | Seehafen Immobilien",
+      "Kontaktieren Sie Seehafen & Partner in Schwyz oder Wohlen für ein kostenloses Erstgespräch."
+    ],
+    "/impressum": [
+      "Impressum | Seehafen Immobilien",
+      "Impressum und Unternehmensinformationen der Seehafen & Partner Immobilien AG."
+    ],
+    "/datenschutz": [
+      "Datenschutz | Seehafen Immobilien",
+      "Datenschutzerklärung der Seehafen & Partner Immobilien AG."
+    ],
+    "/agb": [
+      "AGB | Seehafen Immobilien",
+      "Allgemeine Geschäftsbedingungen der Seehafen & Partner Immobilien AG."
+    ]
+  },
+  "homegateProfileUrl": "https://www.homegate.ch/anbieter/h475138/seehafen-partner-immobilien-ag",
+  "references": [
+    [
+      "Mehrfamilienhaus",
+      "Hägglingen AG",
+      "Verkauft",
+      "6 Wohnungen",
+      "/assets/references/sale-haegglingen-6.jpg"
+    ],
+    [
+      "Wohnportfolio",
+      "Olten SO",
+      "Verkauft",
+      "24 Wohnungen",
+      "/assets/references/sale-olten-24.jpg"
+    ],
+    [
+      "3.5-Zimmer-Wohnung",
+      "Zürich ZH",
+      "Verkauft",
+      "3.5 Zimmer",
+      "/assets/references/sale-zuerich-35.jpg"
+    ],
+    [
+      "3.5-Zimmer-Wohnung",
+      "Bubikon ZH",
+      "Verkauft",
+      "3.5 Zimmer",
+      "/assets/references/sale-bubikon-35.jpg"
+    ],
+    [
+      "2.5-Zimmer-Wohnung",
+      "Hinwil ZH",
+      "Verkauft",
+      "2.5 Zimmer",
+      "/assets/references/sale-hinwil-25.jpg"
+    ],
+    [
+      "4.5-Zimmer-Wohnung",
+      "Dällikon ZH",
+      "Verkauft",
+      "4.5 Zimmer",
+      "/assets/references/sale-daellikon-45.png"
+    ],
+    [
+      "4.5-Zimmer-Wohnung",
+      "Würenlos AG",
+      "Vermietet",
+      "4.5 Zimmer",
+      "/assets/references/rent-wuerenlos-45.jpg"
+    ],
+    [
+      "1.5-Zimmer-Wohnung",
+      "Zürich ZH",
+      "Vermietet",
+      "1.5 Zimmer",
+      "/assets/references/rent-zuerich-15.jpg"
+    ],
+    [
+      "Zwei 4.5-Zimmer-Wohnungen",
+      "Aarburg AG",
+      "Vermietet",
+      "2 Wohnungen",
+      "/assets/references/rent-aarburg-45.png"
+    ],
+    [
+      "4.5-Zimmer-Wohnung",
+      "Reichenburg SZ",
+      "Vermietet",
+      "4.5 Zimmer",
+      "/assets/references/rent-reichenburg-45.jpg"
+    ],
+    [
+      "3.5-Zimmer-Wohnung",
+      "Rudolfstetten AG",
+      "Vermietet",
+      "3.5 Zimmer",
+      "/assets/references/rent-rudolfstetten-35.png"
+    ],
+    [
+      "4.5- & 3.5-Zimmer-Wohnungen",
+      "Altstetten ZH",
+      "Vermietet",
+      "2 Wohnungen",
+      "/assets/references/rent-altstetten.jpg"
+    ],
+    [
+      "Attika-Maisonette-Terrassenhaus",
+      "Rieden SG",
+      "Vermietet",
+      "5.5 Zimmer",
+      "/assets/references/rent-rieden-attika.jpg"
+    ],
+    [
+      "5.5-Zimmer-Wohnung",
+      "Zürich ZH",
+      "Vermietet",
+      "5.5 Zimmer",
+      "/assets/references/rent-zuerich-55.jpg"
+    ],
+    [
+      "2.5- & 3.5-Zimmer-Wohnungen",
+      "Wohlen AG",
+      "Vermietet",
+      "2 Wohnungen",
+      "/assets/references/rent-wohlen-25-35.jpg"
+    ],
+    [
+      "3.5-Zimmer-Wohnung",
+      "Zürich ZH",
+      "Vermietet",
+      "3.5 Zimmer",
+      "/assets/references/rent-zuerich-35.jpg"
+    ],
+    [
+      "4.5-Zimmer-Wohnung",
+      "Wohlen AG",
+      "Vermietet",
+      "4.5 Zimmer",
+      "/assets/references/rent-wohlen-45.jpg"
+    ],
+    [
+      "4-Zimmer-Reihenhaus",
+      "Wohlen AG",
+      "Vermietet",
+      "4 Zimmer",
+      "/assets/references/rent-wohlen-reihenhaus.jpg"
+    ],
+    [
+      "Gewerbefläche",
+      "Wohlen AG",
+      "Vermietet",
+      "Gewerbe",
+      "/assets/references/rent-wohlen-gewerbe.jpg"
+    ],
+    [
+      "1.5-Zimmer-Wohnung",
+      "Opfikon ZH",
+      "Vermietet",
+      "1.5 Zimmer",
+      "/assets/references/rent-opfikon-15.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Bubendorf BL",
+      "Verwaltungsmandat",
+      "6 Wohnungen",
+      "/assets/references/manage-bubendorf-6.jpg"
+    ],
+    [
+      "Wohn- und Geschäftsliegenschaft",
+      "",
+      "Verwaltungsmandat",
+      "2 Ladenflächen · 6 Wohnungen",
+      "/assets/references/manage-shops-apartments.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Staad SG",
+      "Verwaltungsmandat",
+      "8 Wohnungen",
+      "/assets/references/manage-staad-8.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Hägglingen AG",
+      "Verwaltungsmandat",
+      "6 Wohnungen",
+      "/assets/references/manage-haegglingen-6.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Rheineck SG",
+      "Verwaltungsmandat",
+      "12 Wohnungen",
+      "/assets/references/manage-rheineck-12.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Glarus GL",
+      "Verwaltungsmandat",
+      "8 Wohnungen",
+      "/assets/references/manage-glarus-8.jpg"
+    ],
+    [
+      "Wohnliegenschaft",
+      "Hägglingen AG",
+      "Verwaltungsmandat",
+      "8 Wohnungen",
+      "/assets/references/manage-haegglingen-8.png"
+    ],
+    [
+      "Wohn- und Gewerbeliegenschaft",
+      "Schaffhausen SH",
+      "Verwaltungsmandat",
+      "16 Wohnungen · 2 Gewerbeflächen",
+      "/assets/references/manage-schaffhausen.png"
+    ]
+  ]
+}
