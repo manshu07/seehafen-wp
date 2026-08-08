@@ -13,7 +13,7 @@ Previous build was custom-code-first (custom theme + CPT plugin + AJAX handlers)
 |---|---|
 | Content types (services/references/offers/team) | **Custom Post Type UI** (CPT UI) |
 | Custom fields | **ACF** (free) |
-| Page composition / design blocks | **Gutenberg + GenerateBlocks** (free block plugin — seedable, keeps design via CSS) |
+| Page composition / design blocks | **Elementor** (free; page content + widgets). Header/footer/single templates via child theme (SPA CSS verbatim). Pro (theme builder, load-more) noted as optional paid upgrade. |
 | SEO | **Rank Math** |
 | Contact form | **Contact Form 7** |
 | Media/animations | Core blocks + GenerateBlocks + theme CSS (SPA main.css verbatim) |
