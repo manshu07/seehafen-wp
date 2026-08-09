@@ -21,8 +21,8 @@ $ASSET_BASE = '/var/www/html/wp-content/assets-import';
  */
 function sh_import_image( $asset_path, $title ) {
 	static $count = 0;
-	// JSON asset paths are '/assets/...' and the files live at wp-content/assets/...
-	$full = '/var/www/html/wp-content' . $asset_path;
+	// JSON asset paths are '/assets/...' and the files live at assets-import.
+	$full = '/var/www/html/wp-content/assets-import' . '/' . ltrim( str_replace( '/assets/', '', $asset_path ), '/' );
 	if ( ! file_exists( $full ) ) {
 		return 0;
 	}
@@ -156,6 +156,9 @@ foreach ( $data['references'] as $idx => $ref ) {
 // --- Offers (3) ---
 foreach ( $data['offerShowcaseItems'] as $offer ) {
 	$existing = get_page_by_path( 'angebote/' . $offer['slug'], OBJECT, 'offer' );
+	if ( ! $existing ) {
+		$existing = get_page_by_path( $offer['slug'], OBJECT, 'offer' );
+	}
 	if ( $existing ) {
 		$post_id = $existing->ID;
 	} else {

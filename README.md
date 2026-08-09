@@ -44,6 +44,9 @@ cd seehafen-wp
 ## Step 1 — Start WordPress + MySQL containers
 
 ```bash
+# Create the data dirs first (podman needs the mount sources to exist)
+mkdir -p ~/wordpress-dev/mysql-data ~/wordpress-dev/wp-content
+
 podman network create wpnet 2>/dev/null; true
 
 podman run -d --name seehafen-db --network wpnet -p 127.0.0.1:3307:3306 \
@@ -68,20 +71,36 @@ podman ps --format "table {{.Names}}\t{{.Status}}"
 # seehafen-db  Up ...   and   seehafen-wp  Up ...
 ```
 
----
-
-## Step 2 — Copy this repo's theme into the site
+## Step 2 — Install wp-cli inside the container (the image does NOT include it)
 
 ```bash
-# Copy the theme from the repo into the mounted wp-content
-mkdir -p ~/wordpress-dev/wp-content/themes
-cp -r themes/seehafen ~/wordpress-dev/wp-content/themes/
-chmod -R a+rX ~/wordpress-dev/wp-content/themes/seehafen
+podman exec seehafen-wp bash -lc '
+  curl -s -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &&
+  chmod +x /usr/local/bin/wp &&
+  wp --version --allow-root
+'
 ```
+
+**Expected:** `WP-CLI 2.x`
 
 ---
 
-## Step 3 — Install WordPress core (one time)
+## Step 3 — Copy this repo's theme into the site
+
+```bash
+# IMPORTANT: wp-content is owned by the container (rootless podman UID).
+# Plain `cp` from the host fails with Permission denied — use podman unshare.
+podman unshare sh -c '
+  mkdir -p /home/nightmule/wordpress-dev/wp-content/themes &&
+  cp -r /tmp/repo-sync/seehafen-wp/themes/seehafen /home/nightmule/wordpress-dev/wp-content/themes/ &&
+  chmod -R a+rX /home/nightmule/wordpress-dev/wp-content/themes/seehafen
+'
+```
+(Adjust the repo path if you cloned elsewhere — e.g. `~/seehafen-wp/themes/seehafen`.)
+
+---
+
+## Step 4 — Install WordPress core (one time)
 
 ```bash
 podman exec seehafen-wp bash -lc '
@@ -99,7 +118,7 @@ podman exec seehafen-wp bash -lc '
 
 ---
 
-## Step 4 — Activate theme + set pretty URLs
+## Step 5 — Activate theme + set pretty URLs
 
 ```bash
 podman exec seehafen-wp bash -lc '
@@ -113,7 +132,7 @@ podman exec seehafen-wp bash -lc '
 
 ---
 
-## Step 5 — Install + activate plugins
+## Step 6 — Install + activate plugins
 
 ```bash
 podman exec seehafen-wp bash -lc '
@@ -148,54 +167,66 @@ podman exec seehafen-wp bash -lc '
 
 ---
 
-## Step 6 — Copy the setup scripts into the container
+## Step 7 — Copy the setup scripts into the container
 
 ```bash
-podman unshare chmod -R a+rX ~/wordpress-dev/wp-content 2>/dev/null
-cp setup/*.php setup/*.js setup/*.json ~/wordpress-dev/wp-content/ 2>/dev/null
+# Again: use podman unshare (wp-content is container-owned)
+podman unshare sh -c '
+  cp /tmp/repo-sync/seehafen-wp/setup/*.php /tmp/repo-sync/seehafen-wp/setup/*.js /tmp/repo-sync/seehafen-wp/setup/*.json /home/nightmule/wordpress-dev/wp-content/ &&
+  chmod -R a+rX /home/nightmule/wordpress-dev/wp-content
+'
 ```
 
 (The setup scripts run from inside the container at `/var/www/html/wp-content/`.)
 
 ---
 
-## Step 7 — Run the seed scripts (in this order!)
+## Step 8 — Run the seed scripts (in this order!)
 
 ```bash
-# 7a. Create content types (CPTs) + fields + options
+# 8a. Copy seed-data.json FIRST — several seeds read it from /tmp
+podman exec seehafen-wp bash -lc 'cp /var/www/html/wp-content/seed-data.json /tmp/seed-data.json'
+
+# 8b. Create content types (CPTs) + fields + options
 podman exec seehafen-wp bash -lc '
   wp eval-file /var/www/html/wp-content/seed-cptui.php --allow-root &&
   wp eval-file /var/www/html/wp-content/seed-acf.php --allow-root &&
   wp eval-file /var/www/html/wp-content/seed-options.php --allow-root
 '
 
-# 7b. Stage the SPA images (from the source repo clone)
-mkdir -p ~/wordpress-dev/wp-content/assets-import
-cp ../seehafen-2/public/assets/* ~/wordpress-dev/wp-content/assets-import/
-podman unshare chmod -R a+rX ~/wordpress-dev/wp-content/assets-import
-
-# 7c. Import pages, services, references, offers, team, menu + CF7 form
-podman exec seehafen-wp bash -lc '
-  cp /var/www/html/wp-content/seed-data.json /tmp/seed-data.json &&
-  wp eval-file /var/www/html/wp-content/seed-content.php --allow-root
+# 8c. Stage the SPA images (from the source repo clone) — recursive, subdirs matter!
+podman unshare sh -c '
+  mkdir -p /home/nightmule/wordpress-dev/wp-content/assets-import &&
+  cp -r /home/nightmule/seehafen-2/public/assets/* /home/nightmule/wordpress-dev/wp-content/assets-import/ &&
+  chmod -R a+rX /home/nightmule/wordpress-dev/wp-content/assets-import
 '
+# NOTE: the seeds MOVE these files into uploads (wp_handle_sideload) — the
+# staging dir empties itself as imports run. Do NOT re-copy mid-seed.
+
+# 8d. Import pages, services, references, offers, team, menu + CF7 form
+podman exec seehafen-wp bash -lc 'wp eval-file /var/www/html/wp-content/seed-content.php --allow-root'
 # Expected: "Pages: 9 | Services: 4 | Refs: 28 | Offers: 3 | Team: 3 | Menu: <id>"
 
-# 7d. Build the Elementor page data
+# 8e. Build the Elementor page data
 podman exec seehafen-wp bash -lc 'wp eval-file /var/www/html/wp-content/seed-elementor-v2.php --allow-root'
 # Expected: "Built v2 Elementor pages: home, firma, ..."
 
-# 7e. Menu hierarchy + German contact form
+# 8f. Menu hierarchy + German contact form
 podman exec seehafen-wp bash -lc '
   wp eval-file /var/www/html/wp-content/fix-menu.php --allow-root &&
   wp eval-file /var/www/html/wp-content/fix-menu2.php --allow-root &&
   wp eval-file /var/www/html/wp-content/fix-cf7.php --allow-root
 '
+# fix-cf7 expected: "form len: 3115 | has E-Mail: YES | has Thema select: YES | has consent: YES | has submit button: YES"
 ```
+
+> **If you re-run `seed-content.php` on an existing site:** it is idempotent for
+> pages/services/references/team (looks up by slug), but offers were fixed to look up
+> by plain slug — if you see `-2` duplicates, delete the duplicates and re-run once.
 
 ---
 
-## Step 8 — Clear Elementor caches (required after seeding)
+## Step 9 — Clear Elementor caches (required after seeding)
 
 ```bash
 podman exec seehafen-wp bash -lc '
@@ -207,7 +238,7 @@ podman exec seehafen-wp bash -lc '
 
 ---
 
-## Step 9 — Verify it worked
+## Step 10 — Verify it worked
 
 ```bash
 # All 10 routes must return 200

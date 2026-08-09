@@ -8,7 +8,12 @@ if ( ! class_exists( 'WPCF7_ContactForm' ) ) {
 	include_once WP_PLUGIN_DIR . '/contact-form-7/includes/contact-form.php';
 }
 
-$form = wpcf7_contact_form( 78 );
+// Look up by title — IDs drift between environments.
+$cf7_post = get_page_by_title( 'Kontaktformular', OBJECT, 'wpcf7_contact_form' );
+if ( ! $cf7_post ) {
+	wp_die( 'Kontaktformular not found' );
+}
+$form = wpcf7_contact_form( $cf7_post->ID );
 if ( ! $form ) {
 	wp_die( 'Kontaktformular not found' );
 }
@@ -56,7 +61,7 @@ $form->set_properties( $props );
 $form->save();
 
 // Verify.
-$out = do_shortcode( '[contact-form-7 id="78"]' );
+$out = do_shortcode( '[contact-form-7 title="Kontaktformular"]' );
 echo 'form len: ' . strlen( $out ) . PHP_EOL;
 echo 'has E-Mail: ' . ( strpos( $out, 'E-Mail' ) !== false ? 'YES' : 'NO' ) . PHP_EOL;
 echo 'has Thema select: ' . ( strpos( $out, 'Thema' ) !== false ? 'YES' : 'NO' ) . PHP_EOL;
